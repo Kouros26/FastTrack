@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    private bool buttonOne = false;
+    private bool buttonTwo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +18,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void Move(Vector2 vec)
+    public void OnButtonOne(InputAction.CallbackContext context)
     {
-        rb.AddForce(vec);
+        buttonOne = context.action.triggered;
+    }
+
+    public void OnButtonTwo(InputAction.CallbackContext context)
+    {
+        buttonTwo = context.action.triggered;
     }
 }

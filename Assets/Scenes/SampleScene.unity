@@ -385,13 +385,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 759382289}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnButtonOne
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -400,7 +400,19 @@ MonoBehaviour:
     m_ActionId: 0c1f3830-d96d-4b7e-9324-125e6c15dde6
     m_ActionName: PlayerActionMap/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 759382289}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnButtonTwo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: dcafa590-4871-4a16-ad79-ff2618d235ce
     m_ActionName: PlayerActionMap/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
