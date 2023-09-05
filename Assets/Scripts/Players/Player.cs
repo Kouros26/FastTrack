@@ -20,14 +20,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log("One : " + buttonOne + " Two : " + buttonTwo + " Three : " + buttonThree + " Four : " + buttonFour);
-        Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
+        //Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
     }
 
     public void OnButtonOne(InputAction.CallbackContext context)

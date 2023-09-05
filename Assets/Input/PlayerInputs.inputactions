@@ -26,15 +26,6 @@
                 {
                     "name": "Button3",
                     "type": "Button",
-                    "id": "19f5fee4-4b7e-45fe-b171-789a073f9871",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Button4",
-                    "type": "Button",
                     "id": "82a64763-02b9-4c6c-bc90-4f04508deb8b",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -61,15 +52,6 @@
                 },
                 {
                     "name": "Button3Held",
-                    "type": "Button",
-                    "id": "09844207-2295-491b-a7b4-c92dcf310ee3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Button4Held",
                     "type": "Button",
                     "id": "08e99976-aae2-48df-a969-fa5eb08c4010",
                     "expectedControlType": "Button",
@@ -125,34 +107,12 @@
                 },
                 {
                     "name": "",
-                    "id": "bf2066a8-1bab-4ceb-ace4-b894ff191b10",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Button3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f8f7b517-db17-4aa8-8237-95163ff17615",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Button3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "231c1459-57d7-4aba-aabf-8983bb36737a",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Button4",
+                    "action": "Button3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,7 +123,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Button4",
+                    "action": "Button3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -192,7 +152,7 @@
                 {
                     "name": "",
                     "id": "f7891649-954d-4db7-b42a-9929ce0adc6f",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -203,7 +163,7 @@
                 {
                     "name": "",
                     "id": "881c4b9f-ba5f-443e-9d79-8d5fb8981fb1",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -213,45 +173,23 @@
                 },
                 {
                     "name": "",
-                    "id": "a01111f9-af56-4f57-b7d6-514a7130ed60",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Button3Held",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6455db23-4f1f-4962-9447-da43fe682317",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Button3Held",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "da20fa68-6e37-4789-bc97-dfc2c2e1f538",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Button4Held",
+                    "action": "Button3Held",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b953f008-4114-4316-a385-0943a25c1801",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Button4Held",
+                    "action": "Button3Held",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
