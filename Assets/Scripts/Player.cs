@@ -17,17 +17,63 @@ public class Player : MonoBehaviour
     private bool buttonThreeHeld = false;
     private bool buttonFourHeld = false;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Points")]
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")] 
+    int badTimingPoints = 100;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"ok\" timing.")]
+    int okTimingPoints = 300;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
+    int excellentTimingPoints = 500;
+
+    private int mPlayerPoints = 0;
+
+    public void Awake()
     {
-        
+        NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>();
+            rug.SetControllingPlayer(this);
+    }
+
+    public void GivePoints(int pAmount)
+    {
+        mPlayerPoints += pAmount;
+        Debug.Log(mPlayerPoints);
+    }
+
+    //Give points to player based on note stroke timing. Amount configurable in inspector.
+    public void GivePoints(StrokeTiming pTiming)
+    {
+        switch (pTiming) { 
+            case StrokeTiming.Stroke_bad:
+                mPlayerPoints += badTimingPoints;
+                Debug.Log("bad : " + mPlayerPoints);
+                break;
+
+            case StrokeTiming.Stroke_ok:
+                mPlayerPoints += okTimingPoints;
+                Debug.Log("ok" + mPlayerPoints);
+                break;
+
+            case StrokeTiming.Stroke_excellent:
+                mPlayerPoints += excellentTimingPoints;
+                Debug.Log("excellent" + mPlayerPoints);
+                break;
+
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log("One : " + buttonOne + " Two : " + buttonTwo + " Three : " + buttonThree + " Four : " + buttonFour);
-        Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
+        //Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
     }
 
     public void OnButtonOne(InputAction.CallbackContext context)

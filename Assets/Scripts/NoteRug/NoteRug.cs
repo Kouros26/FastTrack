@@ -2,16 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NoteRug : MonoBehaviour
 {
     //TODO : Player stroking the notes (input-timing-type-points)
-    //TODO : Scroll notes
-
 
     [Tooltip("Assigned player controlling the note rug.")] 
     private Player mPlayer;
 
+    [Header("Tracks")]
     [SerializeField]
     [Tooltip("List of all tracks spawnpoints.")]
     private List<RugTrack> tracks;
@@ -20,11 +20,30 @@ public class NoteRug : MonoBehaviour
     
     private RugsManager mManager;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        foreach(var track in tracks)
+        {
+            if(track == null ) continue;
+
+            track.SetRug(this);
+        }
+
+        StartCoroutine(DebugContinuousSpawn());
+
+    }
+
+    IEnumerator DebugContinuousSpawn()
+    {
+        Note note = new Note();
+
+        while (true) 
+        {    
+           note.mRugTrack = Random.Range(0,3);
+           SpawnNote(note);
+            yield return new WaitForSeconds(1f);
+
+        }
     }
 
     // Update is called once per frame
@@ -34,11 +53,6 @@ public class NoteRug : MonoBehaviour
         {
             ProcessNoteBuffer();
         }    
-    }
-
-    public void FixedUpdate()
-    {
-
     }
 
     private void ProcessNoteBuffer()
@@ -53,12 +67,17 @@ public class NoteRug : MonoBehaviour
 
     private void SpawnNote(Note pNnote)
     {
+        if(pNnote.mRugTrack < 0)
+        {
+            Debug.LogError("Rug : " + this.name + " : Couldn't spawn note : Invalid track id");
+            return;
+        }
+
         tracks[pNnote.mRugTrack].SpawnNote(pNnote);
     }
 
     public void SetControllingPlayer(Player pPlayer)
-    {
-        if (mPlayer != null)
+    { 
             this.mPlayer = pPlayer;
     }
 
@@ -72,5 +91,10 @@ public class NoteRug : MonoBehaviour
     public void ProcessNoteSignal(Note pNote)
     {
         mNotesBuffer.Add(pNote);
+    }
+
+    public Player GetPlayer()
+    {
+        return mPlayer;
     }
 }

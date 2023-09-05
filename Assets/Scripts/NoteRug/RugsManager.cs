@@ -9,31 +9,24 @@ using UnityEngine;
 public class RugsManager : MonoBehaviour
 {
     [SerializeField] [Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
-    
-    private StudioEventEmitter mStudioEventEmitter;
+
+    [Space(10)]
 
     [EventRef]
-    public string SongEvent;
+    public string SongEvent; 
+    
+    [Space(10)]
+
+    private StudioEventEmitter mStudioEventEmitter;
 
     private void Awake()
     {
         InitManager();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
+        //TODO : Might be better in Update() rather than FixedUpdate() rn ?
+
 
         //Setps :
         //- Get event values, and pack it into a note.

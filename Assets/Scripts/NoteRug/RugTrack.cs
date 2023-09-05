@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class RugTrack : MonoBehaviour
 {
+    [Header("Points :")]
+
     [SerializeField]
     [Tooltip("Stroking area (See the green part).")]
-    private GameObject StrokingArea;
+    private StrokingArea StrokingArea;
 
     [SerializeField]
     [Tooltip("Note Spawn Point (See the red part).")]
     private GameObject NoteSpawnPoint;
+
+    [Space(10)]
+    [Header("Prefabs : ")]
 
     [SerializeField]
     [Tooltip("Prefab of the note to spawn")]
@@ -19,6 +26,14 @@ public class RugTrack : MonoBehaviour
 
     [Tooltip("List of all the notes on the track")]
     private List<Note> NotesOnTrack = new List<Note>();
+    
+    private NoteRug mNoteRug;
+
+    public void Awake()
+    {
+        if (StrokingArea != null)
+            StrokingArea.SetTrack(this);
+    }
 
     public void SpawnNote(Note pNote)
     {
@@ -28,15 +43,17 @@ public class RugTrack : MonoBehaviour
             return;
         }
 
+        //TODO : Might have to change the prefab for other note type. 
+
         if (NotePrefab != null)
         {
             Object spawnedNote = Instantiate(NotePrefab, NoteSpawnPoint.transform.position, NoteSpawnPoint.transform.rotation);
        
             Note spawnedComponent = spawnedNote.GetComponent<Note>();
        
-            spawnedComponent.mRugTrack  = pNote.mRugTrack;
             spawnedComponent.mType      = pNote.mType;
-            spawnedComponent.noteSpeed = pNote.noteSpeed; ///ndom.Range(0, 5);
+            spawnedComponent.mRugTrack  = pNote.mRugTrack;
+            spawnedComponent.noteSpeed  = pNote.noteSpeed;
 
             NotesOnTrack.Add(spawnedComponent);
         }
@@ -47,34 +64,73 @@ public class RugTrack : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        SpawnNote(new Note());
-    }
-
     public void Update()
     {
-        foreach (var note in NotesOnTrack) 
+        if (!ShouldUpdateNotes()) return;
+
+        List<Note> notesToDestroy = new List<Note>();
+
+        foreach (var note in NotesOnTrack)
         {
-            if(note != null)
+
+            if (note == null)
+                continue;
+
+            if(note.isStroked)
             {
-                note.transform.position = Vector3.MoveTowards(note.transform.position, StrokingArea.transform.position, Time.deltaTime * note.noteSpeed);
+                notesToDestroy.Add(note);
+                continue;
             }
+
+            Vector3 nextPosition = Vector3.MoveTowards(note.transform.position, StrokingArea.transform.position, Time.deltaTime * note.noteSpeed);
+
+            if (note.transform.position != nextPosition)
+                note.transform.position = nextPosition;
+            else
+                notesToDestroy.Add(note);
         }
+
+        foreach(Note note in notesToDestroy)
+        {
+            DestroyNote(note); 
+        }
+
+        notesToDestroy.Clear();
+    }
+
+    private void DestroyNote(Note note)
+    {
+        NotesOnTrack.Remove(note);
+        Destroy(note.gameObject);
+    }
+
+    private bool ShouldUpdateNotes()
+    {
+        //TODO : Stop scrolling when player disconnect/When game pause
+        return true;
     }
 
     private void OnDrawGizmos()
     {
-        if (NoteSpawnPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position, Vector3.one / 2);
-        }
+        if (NoteSpawnPoint == null)
+            return;
 
-        if (StrokingArea != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(StrokingArea.transform.position, Vector3.one / 2);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, Vector3.one / 2);
+    }
+
+    public void SetRug(NoteRug pNoteRug)
+    {
+        mNoteRug = pNoteRug;
+    }
+
+    public NoteRug GetRug()
+    {
+        return mNoteRug;
+    }
+
+    public ReadOnlyCollection<Note> GetNotesOnTrack()
+    {
+        return NotesOnTrack.AsReadOnly();
     }
 }
