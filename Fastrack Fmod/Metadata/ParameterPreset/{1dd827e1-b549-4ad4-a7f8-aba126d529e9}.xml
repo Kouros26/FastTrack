@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{1dd827e1-b549-4ad4-a7f8-aba126d529e9}">
+		<property name="name">
+			<value>Bass3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c2ddd758-5ea6-49ca-9fc7-a2503bd7eeb7}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{71b4bbf9-3c67-4377-8017-1e50d8c0bf90}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{71b4bbf9-3c67-4377-8017-1e50d8c0bf90}">
+		<property name="maximum">
+			<value>10</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{c8098994-f3a3-4525-9b8b-c348211a4e97}">
+		<property name="name">
+			<value>Drums3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c2ddd758-5ea6-49ca-9fc7-a2503bd7eeb7}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{33d732c8-be45-4aee-bbf9-fea1c215a5ad}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{33d732c8-be45-4aee-bbf9-fea1c215a5ad}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
