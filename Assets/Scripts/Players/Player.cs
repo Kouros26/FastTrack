@@ -3,24 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] InGameManager gameManager;
+
     private bool buttonOne = false;
     private bool buttonTwo = false;
     private bool buttonThree = false;
-    private bool buttonFour = false;
 
     private bool buttonOneHeld = false;
     private bool buttonTwoHeld = false;
     private bool buttonThreeHeld = false;
-    private bool buttonFourHeld = false;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this);
+        gameManager = FindObjectOfType<InGameManager>(GameObject.Find("GameManager"));
+
+        if (gameManager == null)
+            Debug.Log("Game Manager not found");
     }
 
     // Update is called once per frame
@@ -28,6 +37,11 @@ public class Player : MonoBehaviour
     {
         //Debug.Log("One : " + buttonOne + " Two : " + buttonTwo + " Three : " + buttonThree + " Four : " + buttonFour);
         //Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Start();
     }
 
     public void OnButtonOne(InputAction.CallbackContext context)
@@ -45,11 +59,6 @@ public class Player : MonoBehaviour
         buttonThree = context.action.triggered;
     }
 
-    public void OnButtonFour(InputAction.CallbackContext context)
-    {
-        buttonFour = context.action.triggered;
-    }
-
     public void OnButtonOneHeld(InputAction.CallbackContext context)
     {
         buttonOneHeld = context.action.triggered;
@@ -65,8 +74,8 @@ public class Player : MonoBehaviour
         buttonThreeHeld = context.action.triggered;
     }
 
-    public void OnButtonFourHeld(InputAction.CallbackContext context)
+    public void OnPauseTriggered(InputAction.CallbackContext context)
     {
-        buttonFourHeld = context.action.triggered;
+        gameManager.OnPause();
     }
 }
