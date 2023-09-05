@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Debug.Log("One : " + buttonOne + " Two : " + buttonTwo + " Three : " + buttonThree + " Four : " + buttonFour);
-        Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
+        //Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
     }
 
     public void OnButtonOne(InputAction.CallbackContext context)
