@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool buttonTwoHeld = false;
     private bool buttonThreeHeld = false;
     private bool buttonFourHeld = false;
-
+    
     [Header("Points")]
 
     [SerializeField]
@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
