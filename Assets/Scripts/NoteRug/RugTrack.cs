@@ -43,7 +43,7 @@ public class RugTrack : MonoBehaviour
             return;
         }
 
-        //TODO : Might have to change the prefab for other note type. 
+        //TODO : Might have to change to change the prefab for different notes types.
 
         if (NotePrefab != null)
         {

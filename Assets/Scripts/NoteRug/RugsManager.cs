@@ -54,9 +54,8 @@ public class RugsManager : MonoBehaviour
                 SongEventInstannce.setParameterByName("", 0);
 
                 //- Broadcast all the notes to the rugs (if correct type)
-                //if(rug)
-                rugs[0].ProcessNoteSignal(SongNote);
-
+                //if(correct rug)
+                    rugs[0].ProcessNoteSignal(SongNote);
             }
         }
     }
