@@ -16,10 +16,59 @@ public class Player : MonoBehaviour
     private bool buttonOneHeld = false;
     private bool buttonTwoHeld = false;
     private bool buttonThreeHeld = false;
+    private bool buttonFourHeld = false;
+    
+    [Header("Points")]
 
-    private void Awake()
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")] 
+    int badTimingPoints = 100;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"ok\" timing.")]
+    int okTimingPoints = 300;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
+    int excellentTimingPoints = 500;
+
+    private int mPlayerPoints = 0;
+
+    public void Awake()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>();
+            rug.SetControllingPlayer(this);
+    }
+
+    public void GivePoints(int pAmount)
+    {
+        mPlayerPoints += pAmount;
+        Debug.Log(mPlayerPoints);
+    }
+
+    //Give points to player based on note stroke timing. Amount configurable in inspector.
+    public void GivePoints(StrokeTiming pTiming)
+    {
+        switch (pTiming)
+        {
+            case StrokeTiming.Stroke_bad:
+                mPlayerPoints += badTimingPoints;
+                Debug.Log("bad : " + mPlayerPoints);
+                break;
+
+            case StrokeTiming.Stroke_ok:
+                mPlayerPoints += okTimingPoints;
+                Debug.Log("ok" + mPlayerPoints);
+                break;
+
+            case StrokeTiming.Stroke_excellent:
+                mPlayerPoints += excellentTimingPoints;
+                Debug.Log("excellent" + mPlayerPoints);
+                break;
+
+            default:
+                break;
+        }
     }
 
     // Start is called before the first frame update
