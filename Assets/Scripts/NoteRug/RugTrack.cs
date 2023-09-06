@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RugTrack : MonoBehaviour
@@ -20,18 +21,26 @@ public class RugTrack : MonoBehaviour
     [Header("Prefabs : ")]
 
     [SerializeField]
-    [Tooltip("Prefab of the note to spawn")]
+    [Tooltip("Prefab to spawn when a basic note is appearing.")]
     private Object NotePrefab;
+    [SerializeField]
+    [Tooltip("Prefab to spawn when a note to hold is appearing.")]
+    private Object NoteHoldPrefab;
 
     [Tooltip("List of all the notes on the track")]
     private List<Note> NotesOnTrack = new List<Note>();
-    
+
     private NoteRug mNoteRug;
 
     public void Awake()
     {
         if (StrokingArea != null)
             StrokingArea.SetTrack(this);
+    }
+
+    public void SetControllingPLayer(Player pPlayer)
+    {
+        StrokingArea.SetControllingPLayer(pPlayer);
     }
 
     public void SpawnNote(Note pNote)
@@ -44,28 +53,40 @@ public class RugTrack : MonoBehaviour
 
         //TODO : Might have to change to change the prefab for different notes types.
 
-        if (NotePrefab != null)
-        {
-            Object spawnedNote = Instantiate(NotePrefab, NoteSpawnPoint.transform.position, NoteSpawnPoint.transform.rotation);
-       
-            Note spawnedComponent = spawnedNote.GetComponent<Note>();
-       
-            spawnedComponent.mType      = pNote.mType;
-            spawnedComponent.mRugTrack  = pNote.mRugTrack;
-            spawnedComponent.noteSpeed  = pNote.noteSpeed;
+        Object prefabToSpawn = null;
 
-            NotesOnTrack.Add(spawnedComponent);
-        }
-        else
+        switch (pNote.mType)
         {
-            Debug.LogError("Track : " + this.name + " : Failed to spawn note, prefab not set.");
-            return;
+            case NoteType.Note_Stroke:
+                if (NotePrefab == null) { Debug.Log("NotePrefab not set !"); } else { prefabToSpawn = NotePrefab; }
+                break;
+
+            case NoteType.Note_Hold:
+                if (NoteHoldPrefab == null) { Debug.Log("NoteHoldPrefab not set !"); } else { prefabToSpawn = NoteHoldPrefab; }
+                break;
+
+            default:
+                break;
+
         }
+
+        Object spawnedNote = Instantiate(prefabToSpawn, NoteSpawnPoint.transform.position, NoteSpawnPoint.transform.rotation);
+
+        Note spawnedComponent = spawnedNote.GetComponent<Note>();
+
+        if (spawnedComponent == null) spawnedNote = spawnedNote.AddComponent<Note>();
+
+        spawnedComponent.mType = pNote.mType;
+        spawnedComponent.mRugTrack = pNote.mRugTrack;
+        spawnedComponent.noteSpeed = pNote.noteSpeed;
+        spawnedComponent.timeToHold = pNote.timeToHold;
+
+        NotesOnTrack.Add(spawnedComponent);
     }
 
     public void Update()
     {
-        if (!ShouldUpdateNotes()) return;
+        if (!ShouldUpdateScrolling()) return;
 
         List<Note> notesToDestroy = new List<Note>();
 
@@ -79,19 +100,19 @@ public class RugTrack : MonoBehaviour
                 notesToDestroy.Add(note);
                 continue;
             }
-            
+
             note.mLerpTimer += Time.deltaTime;
             float t = note.mLerpTimer / note.mStrokeAreaTime;
 
-            if (t > -1)
+            if (t > -5)
                 note.transform.position = Vector3.LerpUnclamped(NoteSpawnPoint.transform.position, StrokingArea.transform.position, -t);
             else
                 notesToDestroy.Add(note);
         }
 
-        foreach(Note note in notesToDestroy)
+        foreach (Note note in notesToDestroy)
         {
-            DestroyNote(note); 
+            DestroyNote(note);
         }
 
         notesToDestroy.Clear();
@@ -103,9 +124,9 @@ public class RugTrack : MonoBehaviour
         Destroy(note.gameObject);
     }
 
-    private bool ShouldUpdateNotes()
+    private bool ShouldUpdateScrolling()
     {
-        //TODO : Stop scrolling when player disconnect/When game pause
+        //TODO : Stop scrolling when player disconnect/When game pause  
         return true;
     }
 
