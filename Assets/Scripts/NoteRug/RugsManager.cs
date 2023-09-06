@@ -85,6 +85,7 @@ public class RugsManager : MonoBehaviour
             Note note = new Note();
 
             note.mType      = MathF.Round(paramValue) == 1 ? NoteType.Note_Stroke : NoteType.Note_Hold;
+            if(note.mType == NoteType.Note_Hold) { }
             note.noteSpeed  = noteSpeed;
             note.mRugTrack  = rugTrack;
             return note;
@@ -106,5 +107,22 @@ public class RugsManager : MonoBehaviour
 
         mStudioEventEmitter.EventReference = this.SongEvent;
         mStudioEventEmitter.Play();
+    }
+
+    //Assign an empty rug to a player.
+    public void AssignRug(Player pPlayer)
+    {
+        foreach(var rug in rugs)
+        {
+            if (rug.GetPlayer() == null)
+            {
+                rug.SetControllingPlayer(pPlayer);
+                return;
+            }else
+            {
+                Debug.LogWarning("Extra player spawned. Note more rug for them.");
+            }
+
+        }
     }
 }
