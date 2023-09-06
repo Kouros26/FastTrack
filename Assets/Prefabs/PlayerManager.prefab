@@ -87,7 +87,23 @@ MonoBehaviour:
       m_Id: 10fd3074-5bab-46b7-aa34-0e8da618d662
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 0ddf1b54-2b40-4d09-8df8-e26f8a4a5e8b
+        m_Path: <Gamepad>/start
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 5237e3c6-63e8-4b06-b18e-c34a41297f5d
+        m_Path: <Keyboard>/enter
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 1425284068877786086, guid: e1e337a298988b94eb530d6f9d4bfdc5, type: 3}
