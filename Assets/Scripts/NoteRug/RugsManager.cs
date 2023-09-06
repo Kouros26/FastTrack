@@ -3,15 +3,18 @@ using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
+using System.Net.NetworkInformation;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RugsManager : MonoBehaviour
 {
     [SerializeField] [Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
 
+    [Header("Song")]
     [SerializeField]
-    private EventReference SongEvent; 
+    private EventReference SongEvent;
 
     private StudioEventEmitter mStudioEventEmitter;
 
@@ -19,39 +22,78 @@ public class RugsManager : MonoBehaviour
     {
         InitManager();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        //Setps :
-        //- Get event values, and pack it into a note.
-        //- Set events at 0
-        //- Broadcast all the notes to the rugs (if correct type)
+        UpdateNotesFromSong();
+    }
 
-
+    private void UpdateNotesFromSong()
+    {
         if (mStudioEventEmitter.IsPlaying())
         {
             EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
 
-            foreach(var currentParameter in mStudioEventEmitter.Params)
-            {
-                //- Get event values, and pack it into a note.
-                Note SongNote = new Note();
+            //That's terrible - sorry T_T
+            float noteSpeed;
+            SongEventInstannce.getParameterByName("NoteSpeed", out noteSpeed);
 
-                float parameterValue;
+            Note newNote;
 
-                SongEventInstannce.getParameterByID(currentParameter.ID, out parameterValue);
+            newNote = MakeNoteFromParam("Guitar1", 0);
+            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
 
-                SongNote.mType      = (NoteType)Math.Round(parameterValue);
-                SongNote.mRugTrack  = (int)parameterValue;
+            newNote = MakeNoteFromParam("Guitar2", 1);
+            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
 
-                //- Set events at 0
-                SongEventInstannce.setParameterByID(currentParameter.ID, 0);
+            newNote = MakeNoteFromParam("Guitar3", 2);
+            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
 
-                //- Broadcast all the notes to the rugs (if correct type)
-                //if(correct rug)
-                    rugs[0].ProcessNoteSignal(SongNote);
-            }
+            newNote = MakeNoteFromParam("Bass1", 0);
+            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
+
+            newNote = MakeNoteFromParam("Bass2", 0);
+            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
+
+            newNote = MakeNoteFromParam("Bass3", 0);
+            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
+
+            newNote = MakeNoteFromParam("Drum1", 0);
+            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
+
+            newNote = MakeNoteFromParam("Drum2", 0);
+            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
+
+            newNote = MakeNoteFromParam("Drum3", 0);
+            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
+        }
+
+    }
+
+    private Note MakeNoteFromParam(string paramName, int rugTrack)
+    {
+        EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
+
+        float noteSpeed;
+        SongEventInstannce.getParameterByName("NoteSpeed", out noteSpeed);
+
+        float paramValue;
+        SongEventInstannce.getParameterByName(paramName, out paramValue);
+        SongEventInstannce.setParameterByName(paramName, 0); //optional
+
+        if (paramValue != 0)
+        {
+            Note note = new Note();
+
+            note.mType      = MathF.Round(paramValue) == 1 ? NoteType.Note_Stroke : NoteType.Note_Hold;
+            note.noteSpeed  = noteSpeed;
+            note.mRugTrack  = rugTrack;
+            return note;
+        }else
+        {
+            return null;
         }
     }
+
 
     private void InitManager()
     {
@@ -60,14 +102,9 @@ public class RugsManager : MonoBehaviour
             rug.SetRugManager(this);
         }
 
-        mStudioEventEmitter = new FMODUnity.StudioEventEmitter();
+        mStudioEventEmitter = this.AddComponent<StudioEventEmitter>();
 
-        mStudioEventEmitter.EventReference  = this.SongEvent;
+        mStudioEventEmitter.EventReference = this.SongEvent;
         mStudioEventEmitter.Play();
-
-        foreach (var currentParameter in mStudioEventEmitter.Params)
-        {
-            Debug.Log("Param : " + currentParameter.Name);
-        }
     }
 }
