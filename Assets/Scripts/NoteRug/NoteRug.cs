@@ -27,7 +27,7 @@ public class NoteRug : MonoBehaviour
             track.SetRug(this);
         }
 
-        StartCoroutine(Debug_ContinuousSpawn());
+        //StartCoroutine(Debug_ContinuousSpawn());
     }
 
     IEnumerator Debug_ContinuousSpawn()
