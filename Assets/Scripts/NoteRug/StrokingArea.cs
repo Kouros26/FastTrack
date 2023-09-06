@@ -24,6 +24,8 @@ public class StrokingArea : MonoBehaviour
     private RugTrack mTrack = null;
     private InputAction mPlayerInputAction = null;
 
+    public float holdCooldownTimer = 0; //For hold points tick cooldown;
+
     public void SetControllingPLayer(Player pPlayer)
     {
         if (pPlayer == null) return;
@@ -32,11 +34,24 @@ public class StrokingArea : MonoBehaviour
 
         mPlayerInputAction = mPlayerRef.GetComponent<PlayerInput>().actions[ActionName];
         mPlayerInputAction.performed += ActionPerformed;
+        mPlayerInputAction.canceled += ActionCanceled;
     }
 
+    //Button released
+    public void ActionCanceled(InputAction.CallbackContext context)
+    {
+        if (!context.canceled) return;
+
+        mNoteHeld = null;
+    }
+    
+    //Button pressed
     public void ActionPerformed(InputAction.CallbackContext context)
     {
-        //if (context.canceled) { mNoteHeld = null; };
+        if (!context.performed)
+        {
+            return; 
+        }
 
         foreach (Note note in mTrack.GetNotesOnTrack())
         {
@@ -80,11 +95,18 @@ public class StrokingArea : MonoBehaviour
     private void Update()
     {
         if (NoteIsHeld())
-        {   
-            mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
-            mNoteHeld.holdTimer += Time.deltaTime;
+        {
+            //Should give points ?
+            if (holdCooldownTimer >= mPlayerRef.holdCooldown)
+            {
+                holdCooldownTimer = 0;
+                mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
+            }
 
-            if (mNoteHeld.holdTimer > mNoteHeld.timeToHold) mNoteHeld = null;
+            holdCooldownTimer += Time.deltaTime;
+
+            mNoteHeld.holdTimer += Time.deltaTime;
+            if (mNoteHeld.holdTimer >= mNoteHeld.timeToHold) mNoteHeld = null;
         }
     }
 
