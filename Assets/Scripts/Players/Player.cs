@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     {
         NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>();
             rug.SetControllingPlayer(this);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void GivePoints(int pAmount)
