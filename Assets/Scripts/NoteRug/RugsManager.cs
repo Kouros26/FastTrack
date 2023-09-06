@@ -10,12 +10,8 @@ public class RugsManager : MonoBehaviour
 {
     [SerializeField] [Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
 
-    [Space(10)]
-
-    [EventRef]
-    public string SongEvent; 
-    
-    [Space(10)]
+    [SerializeField]
+    private EventReference SongEvent; 
 
     private StudioEventEmitter mStudioEventEmitter;
 
@@ -25,9 +21,6 @@ public class RugsManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //TODO : Might be better in Update() rather than FixedUpdate() rn ?
-
-
         //Setps :
         //- Get event values, and pack it into a note.
         //- Set events at 0
@@ -38,20 +31,20 @@ public class RugsManager : MonoBehaviour
         {
             EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
 
-            //foreach(parameters)
+            foreach(var currentParameter in mStudioEventEmitter.Params)
             {
-
                 //- Get event values, and pack it into a note.
                 Note SongNote = new Note();
 
                 float parameterValue;
 
-                SongEventInstannce.getParameterByName("", out parameterValue);
-                SongNote.mType = (NoteType)Math.Round(parameterValue);
+                SongEventInstannce.getParameterByID(currentParameter.ID, out parameterValue);
 
+                SongNote.mType      = (NoteType)Math.Round(parameterValue);
+                SongNote.mRugTrack  = (int)parameterValue;
 
                 //- Set events at 0
-                SongEventInstannce.setParameterByName("", 0);
+                SongEventInstannce.setParameterByID(currentParameter.ID, 0);
 
                 //- Broadcast all the notes to the rugs (if correct type)
                 //if(correct rug)
@@ -69,7 +62,12 @@ public class RugsManager : MonoBehaviour
 
         mStudioEventEmitter = new FMODUnity.StudioEventEmitter();
 
-        mStudioEventEmitter.PlayEvent   = FMODUnity.EmitterGameEvent.ObjectStart;
-        mStudioEventEmitter.Event       = this.SongEvent;          //TODO : Fix deprecated ?
+        mStudioEventEmitter.EventReference  = this.SongEvent;
+        mStudioEventEmitter.Play();
+
+        foreach (var currentParameter in mStudioEventEmitter.Params)
+        {
+            Debug.Log("Param : " + currentParameter.Name);
+        }
     }
 }
