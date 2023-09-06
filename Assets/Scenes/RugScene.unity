@@ -326,6 +326,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrumRug
       objectReference: {fileID: 0}
+    - target: {fileID: 2678254852653486081, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044766196518752625, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: NotePrefab
+      value: 
+      objectReference: {fileID: 7097232280235922381, guid: 94011f65a0f8e4c409a3915d13a0703b, type: 3}
+    - target: {fileID: 6163674948995484981, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: NotePrefab
+      value: 
+      objectReference: {fileID: 7097232280235922381, guid: 94011f65a0f8e4c409a3915d13a0703b, type: 3}
     - target: {fileID: 6163674948995484981, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: StrokingArea
       value: 
@@ -469,6 +481,10 @@ PrefabInstance:
     - target: {fileID: 2678254852653486081, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_Name
       value: BassRug
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678254852653486081, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6163674948995484981, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: StrokingArea
