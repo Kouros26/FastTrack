@@ -26,7 +26,7 @@ public class InGameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
 
-        if (!pauseMenu.GameObject().active && !optionsMenu.GameObject().active)
+        if (!pauseMenu.GameObject().activeSelf && !optionsMenu.GameObject().activeSelf)
         {
             pauseMenu.GameObject().SetActive(true);
             resumeButton.Select();

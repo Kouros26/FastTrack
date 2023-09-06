@@ -10,7 +10,6 @@ using System;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Slider soundSlider;
     [SerializeField] UnityEngine.Object p1Text;
     [SerializeField] UnityEngine.Object p2Text;
     [SerializeField] UnityEngine.Object p3Text;
@@ -39,11 +38,6 @@ public class MainMenu : MonoBehaviour
     public void OnClickedQuit()
     {
         Application.Quit();
-    }
-
-    public void OnVolumeChanged()
-    {
-        AudioListener.volume = soundSlider.value;
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
