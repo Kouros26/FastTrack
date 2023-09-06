@@ -1086,7 +1086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8137bfa2d6225a842bffe8e67a77de51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSlider: {fileID: 2145985572}
   p1Text: {fileID: 1790351482}
   p2Text: {fileID: 1205640995}
   p3Text: {fileID: 1083630458}
@@ -3464,6 +3463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2145985571}
   - component: {fileID: 2145985572}
+  - component: {fileID: 2145985573}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -3540,14 +3540,14 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 709444819}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 2145985573}
+        m_TargetAssemblyTypeName: SoundSlider, Assembly-CSharp
         m_MethodName: OnVolumeChanged
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3556,6 +3556,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2145985573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145985570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0a747785ab29c43a156943ed67fa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundSlider: {fileID: 2145985572}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
