@@ -6,8 +6,6 @@ using Random = UnityEngine.Random;
 
 public class NoteRug : MonoBehaviour
 {
-    //TODO : Player stroking the notes (input-timing-type-points)
-
     [Tooltip("Assigned player controlling the note rug.")] 
     private Player mPlayer;
 
@@ -29,11 +27,10 @@ public class NoteRug : MonoBehaviour
             track.SetRug(this);
         }
 
-        StartCoroutine(DebugContinuousSpawn());
-
+        StartCoroutine(Debug_ContinuousSpawn());
     }
 
-    IEnumerator DebugContinuousSpawn()
+    IEnumerator Debug_ContinuousSpawn()
     {
         Note note = new Note();
 
@@ -78,7 +75,7 @@ public class NoteRug : MonoBehaviour
 
     public void SetControllingPlayer(Player pPlayer)
     { 
-            this.mPlayer = pPlayer;
+        this.mPlayer = pPlayer;
     }
 
     public void SetRugManager(RugsManager pManager)

@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
     //Give points to player based on note stroke timing. Amount configurable in inspector.
     public void GivePoints(StrokeTiming pTiming)
     {
-        switch (pTiming) { 
+        switch (pTiming)
+        {
             case StrokeTiming.Stroke_bad:
                 mPlayerPoints += badTimingPoints;
                 Debug.Log("bad : " + mPlayerPoints);
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
+    }
 
     // Start is called before the first frame update
     void Start()

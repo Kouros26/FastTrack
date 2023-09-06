@@ -11,13 +11,6 @@ public class StrokingArea : MonoBehaviour
     [SerializeField] private float okTimingOffset = 0.3f;
     [SerializeField] private float excellentTimingOffset = 0.1f;
 
-    
-
-    //TODO : ActionPerformed():
-    //If note is close :
-    //- check the timing is bad, ok, or excellent (ajust threshold as parameters)
-    //- Despawn/Hold the note based on type
-
     PlayerInput playerinput;
 
     [Header("Inputs")]
@@ -83,11 +76,6 @@ public class StrokingArea : MonoBehaviour
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
             return;
         }
-
-        Debug.Log("Stroking a missed Note (nothing hapenned).");
-
-        //- check the timing is bad, ok, or excellent (ajust threshold as parameters)
-        //- Despawn/Hold the note based on type
     }
     
     private void OnDrawGizmos()
@@ -104,7 +92,6 @@ public class StrokingArea : MonoBehaviour
         badtimingSpherePosition.y += badTimingOffset;
         oktimingSpherePosition.y += okTimingOffset;
         excellenttimingSpherePosition.y += excellentTimingOffset;
-        
         
         //Bad timing zone
         Gizmos.color = Color.red;
