@@ -36,8 +36,8 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
-        //NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>();
-        //rug.SetControllingPlayer(this);
+        NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>();
+            rug.SetControllingPlayer(this);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
