@@ -32,12 +32,17 @@ public class Player : MonoBehaviour
     [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
     int excellentTimingPoints = 500;
 
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when holding a note. (points being awarded per frame held).")]
+    int holdingPoints = 10;
+    
     private int mPlayerPoints = 0;
+
+    private RugsManager mManager = null; 
 
     public void Awake()
     {
-        //NoteRug rug = GameObject.FindFirstObjectByType<NoteRug>(); Commented because causing errors
-        //    rug.SetControllingPlayer(this);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -59,12 +64,17 @@ public class Player : MonoBehaviour
 
             case StrokeTiming.Stroke_ok:
                 mPlayerPoints += okTimingPoints;
-                Debug.Log("ok" + mPlayerPoints);
+                Debug.Log("ok : " + mPlayerPoints);
                 break;
 
             case StrokeTiming.Stroke_excellent:
                 mPlayerPoints += excellentTimingPoints;
-                Debug.Log("excellent" + mPlayerPoints);
+                Debug.Log("excellent : " + mPlayerPoints);
+                break;
+
+            case StrokeTiming.Stroke_holding:
+                mPlayerPoints += holdingPoints;
+                Debug.Log("Holding : " + mPlayerPoints);
                 break;
 
             default:
@@ -80,13 +90,20 @@ public class Player : MonoBehaviour
 
         if (gameManager == null)
             Debug.Log("Game Manager not found");
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("One : " + buttonOne + " Two : " + buttonTwo + " Three : " + buttonThree + " Four : " + buttonFour);
-        //Debug.Log("Press : " + buttonOne + '\n' + "Hold : " + buttonOneHeld);
+        //Join rug
+        mManager = FindFirstObjectByType<RugsManager>();
+
+        if (mManager == null)
+        {
+            Debug.LogError("Player : Couldnt Find Rug Manager !!");
+            return;
+        }
+        else
+        {
+            mManager.AssignRug(this);
+        }
+        //------------
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

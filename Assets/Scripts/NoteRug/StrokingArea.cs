@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class StrokingArea : MonoBehaviour
 {
@@ -18,41 +19,76 @@ public class StrokingArea : MonoBehaviour
     [Tooltip("The name of the action this stroking area is looking for. (see player input actions).")]
     private string ActionName = "";
 
-    private InputAction action;
-    private RugTrack mTrack;
-    Player mPlayerRef;
+    private Note mNoteHeld = null; //The note currently held. Null if none.
+    private Player mPlayerRef = null;
+    private RugTrack mTrack = null;
+    private InputAction mPlayerInputAction = null;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetControllingPLayer(Player pPlayer)
     {
-        mPlayerRef = mTrack.GetRug().GetPlayer();
-        
-        if(mPlayerRef != null )
-        {
-            action = mPlayerRef.GetComponent<PlayerInput>().actions[ActionName];
-            action.performed += ActionPerformed;
-        }
+        if (pPlayer == null) return;
+
+        mPlayerRef = pPlayer;
+
+        mPlayerInputAction = mPlayerRef.GetComponent<PlayerInput>().actions[ActionName];
+        mPlayerInputAction.performed += ActionPerformed;
     }
 
     public void ActionPerformed(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
+        //if (context.canceled) { mNoteHeld = null; };
 
-        foreach(Note note in mTrack.GetNotesOnTrack())
+        foreach (Note note in mTrack.GetNotesOnTrack())
         {
             if (note == null) continue;
 
-            //If under this it's either in a stroke zone or missed
-            bool isInRangeOfZone = note.transform.position.y <= this.transform.position.y + badTimingOffset;
+            //Note can't be touched anymore.
+            bool isInRangeOfZone = note.transform.position.y <= this.transform.position.y + badTimingOffset && note.transform.position.y > this.transform.position.y;
 
-            if(!isInRangeOfZone) 
+            if (!isInRangeOfZone)
                 continue;
-            else
-                StrokeNote(note);
+
+            switch (note.mType)
+            {
+                case NoteType.Note_Hold:
+                    StartHoldingNote(note);
+                    continue;
+
+                case NoteType.Note_Stroke:
+                    StrikeNote(note);
+                    continue;
+
+                default:
+                    break;
+            }
         }
     }
 
-    private void StrokeNote(Note note)
+    private void StartHoldingNote(Note pNote)
+    {
+        if (mNoteHeld != null) return; //Two notes at the same time ? nonono.
+
+        mNoteHeld = pNote;
+        mNoteHeld.holdTimer = 0;
+    }
+
+    public bool NoteIsHeld()
+    {
+        return mNoteHeld != null;
+    }
+
+    private void Update()
+    {
+        if (NoteIsHeld())
+        {   
+            mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
+            mNoteHeld.holdTimer += Time.deltaTime;
+
+            if (mNoteHeld.holdTimer > mNoteHeld.timeToHold) mNoteHeld = null;
+        }
+    }
+
+    private void StrikeNote(Note note)
     {
         note.isStroked = true;
 
@@ -63,24 +99,24 @@ public class StrokingArea : MonoBehaviour
             mPlayerRef.GivePoints(StrokeTiming.Stroke_bad);
             return;
         }
-        
+
         bool isInOkTiming = note.transform.position.y >= this.transform.position.y + excellentTimingOffset;
 
         if (isInOkTiming)
-        { 
+        {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_ok);
             return;
         }
 
         bool isInExcellentTiming = note.transform.position.y >= this.transform.position.y;
-        
-        if (isInExcellentTiming) 
-        { 
+
+        if (isInExcellentTiming)
+        {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
             return;
         }
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -95,7 +131,7 @@ public class StrokingArea : MonoBehaviour
         badtimingSpherePosition.y += badTimingOffset;
         oktimingSpherePosition.y += okTimingOffset;
         excellenttimingSpherePosition.y += excellentTimingOffset;
-        
+
         //Bad timing zone
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(badtimingSpherePosition, timingSphereSize);
@@ -111,7 +147,7 @@ public class StrokingArea : MonoBehaviour
         Gizmos.DrawLine(excellenttimingSpherePosition, this.transform.position);
 
         Gizmos.DrawSphere(excellenttimingSpherePosition, timingSphereSize);
-        
+
         //Center
         Gizmos.color = Color.black;
         Gizmos.DrawCube(transform.position, new Vector3(timingSphereSize, timingSphereSize, timingSphereSize));
