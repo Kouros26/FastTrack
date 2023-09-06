@@ -26,9 +26,12 @@ public class StrokingArea : MonoBehaviour
     void Start()
     {
         mPlayerRef = mTrack.GetRug().GetPlayer();
-
-        action = mPlayerRef.GetComponent<PlayerInput>().actions[ActionName];
-        action.performed += ActionPerformed;
+        
+        if(mPlayerRef != null )
+        {
+            action = mPlayerRef.GetComponent<PlayerInput>().actions[ActionName];
+            action.performed += ActionPerformed;
+        }
     }
 
     public void ActionPerformed(InputAction.CallbackContext context)

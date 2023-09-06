@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class RugTrack : MonoBehaviour
@@ -72,20 +71,20 @@ public class RugTrack : MonoBehaviour
 
         foreach (var note in NotesOnTrack)
         {
-
             if (note == null)
                 continue;
 
-            if(note.isStroked)
+            if (note.isStroked)
             {
                 notesToDestroy.Add(note);
                 continue;
             }
+            
+            note.mLerpTimer += Time.deltaTime;
+            float t = note.mLerpTimer / note.mStrokeAreaTime;
 
-            Vector3 nextPosition = Vector3.MoveTowards(note.transform.position, StrokingArea.transform.position, Time.deltaTime * note.noteSpeed);
-
-            if (note.transform.position != nextPosition)
-                note.transform.position = nextPosition;
+            if (t > -1)
+                note.transform.position = Vector3.LerpUnclamped(NoteSpawnPoint.transform.position, StrokingArea.transform.position, -t);
             else
                 notesToDestroy.Add(note);
         }
