@@ -2727,6 +2727,7 @@ GameObject:
   - component: {fileID: 2121644284}
   - component: {fileID: 2121644286}
   - component: {fileID: 2121644287}
+  - component: {fileID: 2121644288}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2858,6 +2859,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeSlider: {fileID: 2121644286}
   lifeDecay: 0.02
+--- !u!95 &2121644288
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121644282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 628b3af35b366b648a3f92f0d199e567, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4163111214904556597
 PrefabInstance:
   m_ObjectHideFlags: 0
