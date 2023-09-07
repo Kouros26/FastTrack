@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
-      value: Button1
+      value: HoldBonus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

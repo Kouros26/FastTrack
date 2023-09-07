@@ -37,7 +37,7 @@ public class RugTrack : MonoBehaviour
 
     private NoteRug mNoteRug;
 
-    private Player mPlayer = null; 
+    private Player mPlayer = null;
 
     public void Awake()
     {
@@ -101,7 +101,7 @@ public class RugTrack : MonoBehaviour
 
         foreach (var note in NotesOnTrack)
         {
-            if (note == null)
+            if (note == null || (note.mType == NoteType.Note_BonusShard && StrokingArea.IsHoldingBonus()))
                 continue;
 
             if (note.isStroked)

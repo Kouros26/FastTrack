@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5738533137799080298}
-  - component: {fileID: 4911866283513225924}
+  - component: {fileID: 729249970886315456}
   m_Layer: 0
   m_Name: BonusTrack
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 8827484134239956212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4911866283513225924
+--- !u!114 &729249970886315456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4721474474165944562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38672e1d2821ca42a89d977b390fcd5, type: 3}
+  m_Script: {fileID: 11500000, guid: edd7d48735564884193f47754b1e8176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mManager: {fileID: 0}
+  StrokingArea: {fileID: 7637980290758764049}
+  NoteSpawnPoint: {fileID: 6570512500468797983}
+  NotePrefab: {fileID: 4972722899093817963, guid: 8f820b6e7e6432f418be504053f2aa0f, type: 3}
+  NoteHoldPrefab: {fileID: 7097232280235922381, guid: 94011f65a0f8e4c409a3915d13a0703b, type: 3}
+  BonusNotePrefab: {fileID: 7793680438335456122, guid: bb2d7677372a951409d7569ce022a3d4, type: 3}
 --- !u!1 &6570512500468797983
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,3 +144,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7597187249307059205, guid: 909ae67ffcf26404580c1b2c3a404281, type: 3}
   m_PrefabInstance: {fileID: 3477499559031643627}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7637980290758764049 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466326804414397434, guid: 909ae67ffcf26404580c1b2c3a404281, type: 3}
+  m_PrefabInstance: {fileID: 3477499559031643627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94118538336912d4dbb93d53336c2a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -32,6 +32,8 @@ public class NoteRug : MonoBehaviour
             track.SetRug(this);
         }
 
+        mBonusTrack.SetRug(this);
+
         //StartCoroutine(Debug_ContinuousSpawn());
     }
 
@@ -89,6 +91,8 @@ public class NoteRug : MonoBehaviour
             track.SetControllingPLayer(pPlayer);
         }
 
+        mBonusTrack.SetControllingPLayer(pPlayer);
+
         Debug.Log(this.name + " : Player have been asigned !");
     }
 
@@ -123,5 +127,10 @@ public class NoteRug : MonoBehaviour
 
         mBonusTrack.SpawnNote(bonusNote);
         Debug.Log(this.name + " : Spawning bonus note !");
+    }
+
+    internal RugsManager GetManager()
+    {
+        return mManager;
     }
 }
