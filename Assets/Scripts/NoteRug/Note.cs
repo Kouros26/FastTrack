@@ -19,6 +19,7 @@ public enum StrokeTiming
     Stroke_ok,
     Stroke_excellent,
     Stroke_holding,
+    Stroke_missed,
     Stroke_null = -1
 }
 

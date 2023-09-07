@@ -44,5 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559d586db0dae724e8750a1eeff61f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rugs: []
-  SongEvent: 
+  rugs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SongEvent:
+    Guid:
+      Data1: 915182394
+      Data2: 1081408829
+      Data3: 631997826
+      Data4: 1884355850
+    Path: event:/Timeline
