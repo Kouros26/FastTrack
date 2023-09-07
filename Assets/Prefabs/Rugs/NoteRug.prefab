@@ -828,6 +828,18 @@ PrefabInstance:
       propertyPath: ActionName
       value: HoldBonus
       objectReference: {fileID: 0}
+    - target: {fileID: 8827484134239956212, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827484134239956212, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827484134239956212, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
