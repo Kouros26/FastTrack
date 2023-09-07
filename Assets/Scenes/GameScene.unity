@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2226,6 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd56610796ad2142bab6cba2d9c0008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameUI: {fileID: 638069713}
   pauseMenu: {fileID: 2030561589}
   optionsMenu: {fileID: 115775031}
   resumeButton: {fileID: 1050486881}
@@ -2753,7 +2754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.7, y: -370.3}
+  m_AnchoredPosition: {x: 22.7, y: -233}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121644284
@@ -2859,6 +2860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeSlider: {fileID: 2121644286}
   lifeDecay: 0.02
+  lifeDisplayThreshold: 0.01
 --- !u!95 &2121644288
 Animator:
   serializedVersion: 5
