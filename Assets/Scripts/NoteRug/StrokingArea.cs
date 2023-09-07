@@ -12,6 +12,10 @@ public class StrokingArea : MonoBehaviour
     [SerializeField] private float okTimingOffset = 0.3f;
     [SerializeField] private float excellentTimingOffset = 0.1f;
 
+    [SerializeField] UnityEngine.Object failPrefab;
+    [SerializeField] UnityEngine.Object okPrefab;
+    [SerializeField] UnityEngine.Object excellentPrefab;
+
     PlayerInput playerinput;
 
     [Header("Inputs")]
@@ -133,6 +137,7 @@ public class StrokingArea : MonoBehaviour
             {
                 holdCooldownTimer = 0;
                 mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
+                Instantiate(excellentPrefab);
             }
 
             holdCooldownTimer += Time.deltaTime;
@@ -159,6 +164,7 @@ public class StrokingArea : MonoBehaviour
         if (isInOkTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_ok);
+            Instantiate(okPrefab);
             return;
         }
 
@@ -167,10 +173,12 @@ public class StrokingArea : MonoBehaviour
         if (isInExcellentTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
+            Instantiate(excellentPrefab);
             return;
         }
 
         mPlayerRef.GivePoints(StrokeTiming.Stroke_missed);
+        Instantiate(failPrefab);
     }
 
     private void OnDrawGizmos()

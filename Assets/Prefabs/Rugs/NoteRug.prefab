@@ -564,9 +564,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: okPrefab
+      value: 
+      objectReference: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
       value: Button1
       objectReference: {fileID: 0}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: failPrefab
+      value: 
+      objectReference: {fileID: 5477135199781698625, guid: 3ae29466cf20e2a43a8de801e80de458, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: excellentPrefab
+      value: 
+      objectReference: {fileID: 4075673268502880154, guid: 1627b0ff57e97b64d9aa3e0486d6d81d, type: 3}
     - target: {fileID: 8399451942675851766, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: NoteHoldPrefab
       value: 
@@ -661,9 +673,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: okPrefab
+      value: 
+      objectReference: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
       value: Button1
       objectReference: {fileID: 0}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: failPrefab
+      value: 
+      objectReference: {fileID: 5477135199781698625, guid: 3ae29466cf20e2a43a8de801e80de458, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: excellentPrefab
+      value: 
+      objectReference: {fileID: 4075673268502880154, guid: 1627b0ff57e97b64d9aa3e0486d6d81d, type: 3}
     - target: {fileID: 8399451942675851766, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: StrokingArea
       value: 
@@ -773,9 +797,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: okPrefab
+      value: 
+      objectReference: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
       value: Button1
       objectReference: {fileID: 0}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: failPrefab
+      value: 
+      objectReference: {fileID: 5477135199781698625, guid: 3ae29466cf20e2a43a8de801e80de458, type: 3}
+    - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
+      propertyPath: excellentPrefab
+      value: 
+      objectReference: {fileID: 4075673268502880154, guid: 1627b0ff57e97b64d9aa3e0486d6d81d, type: 3}
     - target: {fileID: 8399451942675851766, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: NoteHoldPrefab
       value: 
