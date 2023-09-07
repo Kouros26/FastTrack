@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
     [Tooltip("Time, in second, between two ticks of points while holding a note.")]
     public float holdCooldown = 0.1f;
 
+    private int mPlayerPoints = 0;
+
     private RugsManager mManager = null; 
 
     private bool mPointsBonusActive = false;
@@ -78,7 +80,6 @@ public class Player : MonoBehaviour
         Debug.Log("End of bonus !");
     }
 
-
     //Give points to player based on note stroke timing. Amount configurable in inspector.
     public void GivePoints(StrokeTiming pTiming)
     {
@@ -86,25 +87,25 @@ public class Player : MonoBehaviour
         switch (pTiming)
         {
             case StrokeTiming.Stroke_bad:
-                pointsGiven = badTimingPoints;
+                pointsGiven = (int)(badTimingPoints * 1000);
                 Debug.Log("BAD !");
                 GroupLife.OnLifeChanged(badTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_ok:
-                pointsGiven = okTimingPoints;
+                pointsGiven = (int)(okTimingPoints * 1000);
                 Debug.Log("OK");
                 GroupLife.OnLifeChanged(okTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_excellent:
                 GroupLife.OnLifeChanged(excellentTimingPoints);
-                pointsGiven = excellentTimingPoints;
+                pointsGiven = (int)(excellentTimingPoints * 1000);
                 Debug.Log("Excellent");
                 break;
 
             case StrokeTiming.Stroke_holding:
-                pointsGiven = holdingPoints;
+                pointsGiven = (int)(holdingPoints * 1000);
                 Debug.Log("Holding");
                 GroupLife.OnLifeChanged(holdingPoints);
                 break;
