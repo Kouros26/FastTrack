@@ -24,6 +24,7 @@ public class StrokingArea : MonoBehaviour
     private RugTrack mTrack = null;
     private InputAction mPlayerInputAction = null;
 
+    [HideInInspector]
     public float holdCooldownTimer = 0; //For hold points tick cooldown;
 
     public void SetControllingPLayer(Player pPlayer)

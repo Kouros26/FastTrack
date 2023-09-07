@@ -27,7 +27,7 @@ public class Note : MonoBehaviour
 {
     public NoteType mType = NoteType.Note_Null;
     
-    public float    noteSpeed =  1;     //Time, in second, to reach the end of the track. Aka offset.
+    public float    noteSpeed =  1;     //Time, in second, for to reach the end of the track. Aka offset.
     public int      mRugTrack = -1;     //Track id on the rug, from left to right, starting at 0, -1 is invalid;
     public float    timeToHold = -1;    //Time, in second, the player can hold the note to gain more points.
     public float    holdTimer = 0;      //Internal hold value.
