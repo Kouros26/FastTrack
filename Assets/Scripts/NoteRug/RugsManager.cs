@@ -52,19 +52,19 @@ public class RugsManager : MonoBehaviour
             newNote = MakeNoteFromParam("Bass1", 0);
             if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
 
-            newNote = MakeNoteFromParam("Bass2", 0);
+            newNote = MakeNoteFromParam("Bass2", 1);
             if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
 
-            newNote = MakeNoteFromParam("Bass3", 0);
+            newNote = MakeNoteFromParam("Bass3", 2);
             if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
 
-            newNote = MakeNoteFromParam("Drum1", 0);
+            newNote = MakeNoteFromParam("Drums1", 0);
             if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
 
-            newNote = MakeNoteFromParam("Drum2", 0);
+            newNote = MakeNoteFromParam("Drums2", 1);
             if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
 
-            newNote = MakeNoteFromParam("Drum3", 0);
+            newNote = MakeNoteFromParam("Drums3", 2);
             if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
         }
 
