@@ -90,8 +90,8 @@ public class RugsManager : MonoBehaviour
         {
             noteFromSong.ResetComponent(); //Hack, I can't just create a new instance caus it's Monobehaviour.
 
-            noteFromSong.mType = MathF.Round(paramValue) == 1 ? NoteType.Note_Stroke : NoteType.Note_Hold;
-            if (noteFromSong.mType == NoteType.Note_Hold) { } //TODO : Check with sound design about fmod impl of that.
+            noteFromSong.mType = MathF.Round(paramValue) == 10 ? NoteType.Note_Stroke : NoteType.Note_Hold;
+            if (noteFromSong.mType == NoteType.Note_Hold) { noteFromSong.timeToHold = paramValue; }
             noteFromSong.noteSpeed = noteSpeed;
             noteFromSong.mRugTrack = rugTrack;
 
