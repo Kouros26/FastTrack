@@ -42,6 +42,8 @@ public class StrokingArea : MonoBehaviour
     {
         if (!context.canceled) return;
 
+        if(mNoteHeld != null) { mNoteHeld.isStroked = true; }
+
         mNoteHeld = null;
     }
     

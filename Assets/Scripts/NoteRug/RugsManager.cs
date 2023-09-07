@@ -10,19 +10,22 @@ using UnityEngine;
 
 public class RugsManager : MonoBehaviour
 {
-    [SerializeField] [Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
+    [SerializeField][Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
 
     [Header("Song")]
     [SerializeField]
     private EventReference SongEvent;
 
     private StudioEventEmitter mStudioEventEmitter;
+    private Note noteFromSong = null;
 
     private void Awake()
     {
         InitManager();
+        noteFromSong = this.AddComponent<Note>();
     }
-    private void Update()
+
+    private void FixedUpdate()
     {
         UpdateNotesFromSong();
     }
@@ -33,9 +36,7 @@ public class RugsManager : MonoBehaviour
         {
             EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
 
-            //That's terrible - sorry T_T
-            float noteSpeed;
-            SongEventInstannce.getParameterByName("NoteSpeed", out noteSpeed);
+            //
 
             Note newNote;
 
@@ -73,23 +74,30 @@ public class RugsManager : MonoBehaviour
     {
         EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
 
-        float noteSpeed;
-        SongEventInstannce.getParameterByName("NoteSpeed", out noteSpeed);
+        float placeHolder = 0; //What is this value for ? No docs ??
+        float noteSpeed = 0;
 
-        float paramValue;
-        SongEventInstannce.getParameterByName(paramName, out paramValue);
-        SongEventInstannce.setParameterByName(paramName, 0); //optional
+        SongEventInstannce.getParameterByName("NoteSpeed", out placeHolder, out noteSpeed);
+        //SongEventInstannce.setParameterByName("NoteSpeed", 0);
 
+        float paramValue = 0;
+
+        SongEventInstannce.getParameterByName(paramName, out placeHolder, out paramValue);
+        SongEventInstannce.setParameterByName(paramName, 0);
+
+        
         if (paramValue != 0)
         {
-            Note note = new Note();
+            noteFromSong.ResetComponent(); //Hack, I can't just create a new instance caus it's Monobehaviour.
 
-            note.mType      = MathF.Round(paramValue) == 1 ? NoteType.Note_Stroke : NoteType.Note_Hold;
-            if(note.mType == NoteType.Note_Hold) { }
-            note.noteSpeed  = noteSpeed;
-            note.mRugTrack  = rugTrack;
-            return note;
-        }else
+            noteFromSong.mType = MathF.Round(paramValue) == 1 ? NoteType.Note_Stroke : NoteType.Note_Hold;
+            if (noteFromSong.mType == NoteType.Note_Hold) { } //TODO : Check with sound design about fmod impl of that.
+            noteFromSong.noteSpeed = noteSpeed;
+            noteFromSong.mRugTrack = rugTrack;
+
+            return noteFromSong;
+        }
+        else
         {
             return null;
         }
@@ -104,7 +112,6 @@ public class RugsManager : MonoBehaviour
         }
 
         mStudioEventEmitter = this.AddComponent<StudioEventEmitter>();
-
         mStudioEventEmitter.EventReference = this.SongEvent;
         mStudioEventEmitter.Play();
     }
@@ -112,13 +119,14 @@ public class RugsManager : MonoBehaviour
     //Assign an empty rug to a player.
     public void AssignRug(Player pPlayer)
     {
-        foreach(var rug in rugs)
+        foreach (var rug in rugs)
         {
             if (rug.GetPlayer() == null)
             {
                 rug.SetControllingPlayer(pPlayer);
                 return;
-            }else
+            }
+            else
             {
                 Debug.LogWarning("Extra player spawned. Note more rug for them.");
             }
