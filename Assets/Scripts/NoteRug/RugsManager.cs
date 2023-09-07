@@ -211,7 +211,7 @@ public class RugsManager : MonoBehaviour
         {
             noteFromSong.ResetComponent(); //Hack, I can't just create a new instance caus it's Monobehaviour.
 
-            noteFromSong.mType = MathF.Round(paramValue) == 10 ? NoteType.Note_Stroke : NoteType.Note_Hold;
+            noteFromSong.mType = MathF.Round(paramValue) == 30 ? NoteType.Note_Stroke : NoteType.Note_Hold;
             if (noteFromSong.mType == NoteType.Note_Hold) { noteFromSong.timeToHold = paramValue; }
             noteFromSong.noteSpeed = noteSpeed;
             noteFromSong.mRugTrack = rugTrack;
