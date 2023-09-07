@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
 {
+    [SerializeField] Object gameUI;
     [SerializeField] Object pauseMenu;
     [SerializeField] Object optionsMenu;
     [SerializeField] Button resumeButton;
@@ -28,6 +29,7 @@ public class InGameManager : MonoBehaviour
 
         if (!pauseMenu.GameObject().activeSelf && !optionsMenu.GameObject().activeSelf)
         {
+            gameUI.GameObject().SetActive(false);
             pauseMenu.GameObject().SetActive(true);
             resumeButton.Select();
         }
@@ -36,7 +38,7 @@ public class InGameManager : MonoBehaviour
     public void OnResume()
     {
         Time.timeScale = 1.0f;
-        //Pause menu gets deactivated out of the script
+        //Pause menu gets deactivated out of the script and gameUI also gets reactivated out of the script
     }
 
     public void OnClickedQuit()
