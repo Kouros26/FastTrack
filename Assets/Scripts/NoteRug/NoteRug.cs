@@ -12,8 +12,12 @@ public class NoteRug : MonoBehaviour
 
     [Header("Tracks")]
     [SerializeField]
-    [Tooltip("List of all tracks spawnpoints.")]
+    [Tooltip("List of all tracks.")]
     private List<RugTrack> tracks;
+
+    [SerializeField]
+    [Tooltip("Bonus Track object. (use prefab)")]
+    private RugTrack mBonusTrack = null;
 
     private List<Note> mNotesBuffer = new List<Note>(); //Buffer of all the notes to be spawn this frame
 
@@ -103,5 +107,21 @@ public class NoteRug : MonoBehaviour
     public Player GetPlayer()
     {
         return mPlayer;
+    }
+
+    public bool CanSpawnBonusNote()
+    {
+        return mBonusTrack != null && mBonusTrack.GetNotesOnTrack().Count <= 0;
+    }
+
+    public void SpawnBonusNote()
+    {
+        Note bonusNote = new Note();
+
+        bonusNote.mType = NoteType.Note_BonusShard;
+        bonusNote.noteSpeed = mManager.mBonusNoteSpeed;        
+
+        mBonusTrack.SpawnNote(bonusNote);
+        Debug.Log(this.name + " : Spawning bonus note !");
     }
 }
