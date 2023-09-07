@@ -22,25 +22,27 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
-    private int badTimingPoints = 100;
+    private float missedTimingPoints = -0.1f;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
+    private float badTimingPoints = 0.1f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"ok\" timing.")]
-    private int okTimingPoints = 300;
+    private float okTimingPoints = 0.3f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
-    private int excellentTimingPoints = 500;
+    private float excellentTimingPoints = 0.5f;
 
 
     [SerializeField]
     [Tooltip("Amount of points awarded when holding a note. (points being awarded per frame held).")]
-    private int holdingPoints = 10;
+    private float holdingPoints = 0.01f;
 
     [Tooltip("Time, in second, between two ticks of points while holding a note.")]
     public float holdCooldown = 0.1f;
-
-    private int mPlayerPoints = 0;
 
     private RugsManager mManager = null; 
 
@@ -51,8 +53,7 @@ public class Player : MonoBehaviour
 
     public void GivePoints(int pAmount)
     {
-        mPlayerPoints += pAmount;
-        Debug.Log(mPlayerPoints);
+
     }
 
     //Give points to player based on note stroke timing. Amount configurable in inspector.
@@ -61,26 +62,23 @@ public class Player : MonoBehaviour
         switch (pTiming)
         {
             case StrokeTiming.Stroke_bad:
-                mPlayerPoints += badTimingPoints;
-                Debug.Log("bad : " + mPlayerPoints);
+                GroupLife.OnLifeChanged(badTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_ok:
-                mPlayerPoints += okTimingPoints;
-                Debug.Log("ok : " + mPlayerPoints);
+                GroupLife.OnLifeChanged(okTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_excellent:
-                mPlayerPoints += excellentTimingPoints;
-                Debug.Log("excellent : " + mPlayerPoints);
+                GroupLife.OnLifeChanged(excellentTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_holding:
-                mPlayerPoints += holdingPoints;
-                Debug.Log("Holding : " + mPlayerPoints);
+                GroupLife.OnLifeChanged(holdingPoints);
                 break;
 
             default:
+                GroupLife.OnLifeChanged(missedTimingPoints);
                 break;
         }
     }
