@@ -68,7 +68,7 @@ public class StrokingArea : MonoBehaviour
 
         foreach (Note note in mTrack.GetNotesOnTrack())
         {
-            if (note == null) continue;
+             if (note == null) continue;
 
             //Note can't be touched anymore.
             bool isInRangeOfZone = note.transform.position.y <= this.transform.position.y + badTimingOffset && note.transform.position.y > this.transform.position.y;
@@ -169,6 +169,8 @@ public class StrokingArea : MonoBehaviour
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
             return;
         }
+
+        mPlayerRef.GivePoints(StrokeTiming.Stroke_missed);
     }
 
     private void OnDrawGizmos()

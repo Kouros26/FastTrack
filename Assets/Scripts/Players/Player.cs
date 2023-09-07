@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
+    private int missedTimingPoints = -100;
+
+    [SerializeField]
+    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
     private int badTimingPoints = 100;
 
     [SerializeField]
@@ -92,14 +96,17 @@ public class Player : MonoBehaviour
             case StrokeTiming.Stroke_bad:
                 pointsGiven = badTimingPoints;
                 Debug.Log("BAD !");
+                GroupLife.OnLifeChanged(badTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_ok:
                 pointsGiven = okTimingPoints;
                 Debug.Log("OK");
+                GroupLife.OnLifeChanged(okTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_excellent:
+                GroupLife.OnLifeChanged(excellentTimingPoints);
                 pointsGiven = excellentTimingPoints;
                 Debug.Log("Excellent");
                 break;
@@ -107,9 +114,11 @@ public class Player : MonoBehaviour
             case StrokeTiming.Stroke_holding:
                 pointsGiven = holdingPoints;
                 Debug.Log("Holding");
+                GroupLife.OnLifeChanged(holdingPoints);
                 break;
 
             default:
+                GroupLife.OnLifeChanged(missedTimingPoints);
                 break;
         }
 
