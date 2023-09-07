@@ -21,22 +21,25 @@ public class Player : MonoBehaviour
     [Header("Points")]
 
     [SerializeField]
-    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")] 
-    int badTimingPoints = 100;
+    [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
+    private int badTimingPoints = 100;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"ok\" timing.")]
-    int okTimingPoints = 300;
+    private int okTimingPoints = 300;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
-    int excellentTimingPoints = 500;
+    private int excellentTimingPoints = 500;
 
 
     [SerializeField]
     [Tooltip("Amount of points awarded when holding a note. (points being awarded per frame held).")]
-    int holdingPoints = 10;
-    
+    private int holdingPoints = 10;
+
+    [Tooltip("Time, in second, between two ticks of points while holding a note.")]
+    public float holdCooldown = 0.1f;
+
     private int mPlayerPoints = 0;
 
     private RugsManager mManager = null; 
