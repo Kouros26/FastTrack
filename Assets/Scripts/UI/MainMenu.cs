@@ -10,23 +10,23 @@ using System;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] UnityEngine.Object p1Text;
-    [SerializeField] UnityEngine.Object p2Text;
-    [SerializeField] UnityEngine.Object p3Text;
     [SerializeField] UnityEngine.Object startObject;
     [SerializeField] int startTextAlpha = 60;
-    TMP_Text startText;
+    Image startImage;
 
     int playerCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        startText = startObject.GetComponent<TextMeshProUGUI>();
+        startImage = startObject.GetComponent<Image>();
 
         startTextAlpha = Math.Clamp(startTextAlpha, 0, 255);
 
-        startText.alpha = Alpha255to1(startTextAlpha);
+        startImage.color = new Color(1, 1, 1, Alpha255to1(startTextAlpha));
+
+        if (AllPlayersConnected())
+            startImage.color = new Color(1, 1, 1, 1);
     }
 
     public void OnClickedPlay()
@@ -45,23 +45,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("PlayerInput id : " + playerInput.playerIndex);
         playerCount++;
 
-        switch (playerInput.playerIndex)
-        {
-            case 0:
-                p1Text.GameObject().SetActive(true);
-                break;
-
-            case 1:
-                p2Text.GameObject().SetActive(true);
-                break;
-
-            case 2:
-                p3Text.GameObject().SetActive(true);
-                break;
-        }
-
         if (AllPlayersConnected())
-            startText.alpha = 1;
+            startImage.color = new Color(1, 1, 1, 1);
 
     }
 
@@ -70,23 +55,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("PlayerLeft id : " + playerInput.playerIndex);
         playerCount--;
 
-        switch (playerInput.playerIndex)
-        {
-            case 0:
-                p1Text.GameObject().SetActive(false);
-                break;
-
-            case 1:
-                p2Text.GameObject().SetActive(false);
-                break;
-
-            case 2:
-                p3Text.GameObject().SetActive(false);
-                break;
-        }
-
         if (!AllPlayersConnected())
-            startText.alpha = startTextAlpha;
+            startImage.color = new Color(1, 1, 1, Alpha255to1(startTextAlpha));
     }
 
     private bool AllPlayersConnected()
