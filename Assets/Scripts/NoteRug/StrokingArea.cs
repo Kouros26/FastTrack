@@ -19,13 +19,16 @@ public class StrokingArea : MonoBehaviour
     [Tooltip("The name of the action this stroking area is looking for. (see player input actions).")]
     private string ActionName = "";
 
-    private Note mNoteHeld = null; //The note currently held. Null if none.
+    private Note mNoteHeld = null;      //The note currently held. Null if none.
+    private Note mHeldBonusNote = null; //The bonus note currently held. Null if none.
+
     private Player mPlayerRef = null;
     private RugTrack mTrack = null;
     private InputAction mPlayerInputAction = null;
 
     [HideInInspector]
     public float holdCooldownTimer = 0; //For hold points tick cooldown;
+    
 
     public void SetControllingPLayer(Player pPlayer)
     {
@@ -45,6 +48,13 @@ public class StrokingArea : MonoBehaviour
 
         if(mNoteHeld != null) { mNoteHeld.isStroked = true; }
 
+        if (mHeldBonusNote != null)
+        {
+            mHeldBonusNote.isStroked = true;
+            GetRugManager().BonusIsReleased();
+        }
+
+        mHeldBonusNote = null;
         mNoteHeld = null;
     }
     
@@ -76,10 +86,29 @@ public class StrokingArea : MonoBehaviour
                     StrikeNote(note);
                     continue;
 
+                case NoteType.Note_BonusShard:
+                    StartHoldingBonus(note);
+                    continue;
+
                 default:
                     break;
             }
         }
+    }
+
+    private void StartHoldingBonus(Note note)
+    {
+        mHeldBonusNote = note;
+        note.gameObject.transform.position = this.transform.position; //Snap note to stroke area        
+        GetRugManager().NewBonusIsHeld();   
+    }
+
+    private RugsManager GetRugManager()
+    {
+        NoteRug rug = mTrack.GetRug();
+        RugsManager rugManager = rug.GetManager();
+
+        return rugManager;
     }
 
     private void StartHoldingNote(Note pNote)
@@ -183,5 +212,10 @@ public class StrokingArea : MonoBehaviour
     public void SetTrack(RugTrack pRugTrack)
     {
         mTrack = pRugTrack;
+    }
+
+    internal bool IsHoldingBonus()
+    {
+        return mHeldBonusNote != null;
     }
 }

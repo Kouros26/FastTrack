@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class RugsManager : MonoBehaviour
@@ -45,6 +46,16 @@ public class RugsManager : MonoBehaviour
     [Tooltip("Time, in second, for to reach the end of the track. Aka offset.")]
     public float mBonusNoteSpeed = 5;
 
+    [SerializeField]
+    [Range(0.0f, 30.0f)]
+    [Tooltip("Time, in second, when all players need to release their bonus to activate the effect.")]
+    private float mBonusReleaseWindow = 0.64f;
+
+    [SerializeField]
+    [Range(0.0f, 30.0f)]
+    [Tooltip("Time, in second, of the bonus effect.")]
+    private float mBonusDuration = 10.0f;
+
     private float mBonusNoteSpawnTimer = 0;
     private float mRealBonusNoteSpawnCooldown = 0;
 
@@ -54,9 +65,16 @@ public class RugsManager : MonoBehaviour
     private bool isInBonusPhase = false;
     private List<bool> bonusHelds = new List<bool>();
 
-    private Note noteFromSong = null; //"Buffer" Used for note generation.
     private StudioEventEmitter mStudioEventEmitter;
+
+    private Note noteFromSong = null;   //"Buffer" Used for note generation.
     private int playerCount = 0;
+
+    private int bonusHeldCount = 0;     //The number of bonuses held by the players.
+
+    private bool BonusReleaseCoroutine = false;
+
+    private List<Player> playerList = new List<Player>();
 
     private void Awake()
     {
@@ -97,7 +115,7 @@ public class RugsManager : MonoBehaviour
             return;
         
         mBonusNoteSpawnTimer = 0;
-        mRealBonusNoteSpawnCooldown = mBonusNoteSpawnCooldown + UnityEngine.Random.Range(0.0f, mBonusNoteSpawnRandomModifier);
+        mRealBonusNoteSpawnCooldown = mBonusNoteSpawnCooldown + UnityEngine.Random.Range(0.0f, mBonusNoteSpawnRandomModifier+1);
 
         List<NoteRug> rugsCopy = new List<NoteRug>(rugs);
 
@@ -227,11 +245,14 @@ public class RugsManager : MonoBehaviour
     //Assign an empty rug to a player.
     public void AssignRug(Player pPlayer)
     {
+
+
         foreach (var rug in rugs)
         {
             if (rug.GetPlayer() == null)
             {
                 rug.SetControllingPlayer(pPlayer);
+                playerList.Add(pPlayer);
                 playerCount++;
                 return;
             }
@@ -241,5 +262,54 @@ public class RugsManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void NewBonusIsHeld()
+    {
+        bonusHeldCount++;
+    }
+
+    public void BonusIsReleased()
+    {
+        if(!BonusReleaseCoroutine && bonusHeldCount >= playerCount)
+            StartCoroutine("GroupBonusReleaseWindow");
+
+        bonusHeldCount--;
+    }
+
+    IEnumerator GroupBonusReleaseWindow()
+    {
+        float groupTimer = mBonusReleaseWindow;
+        BonusReleaseCoroutine = true;
+
+        while (groupTimer > 0)
+        {
+            groupTimer-= Time.deltaTime;
+
+            if (bonusHeldCount <= 0)
+            {
+                StartCoroutine("BonusEffect");
+                BonusReleaseCoroutine = false;
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        BonusReleaseCoroutine = false;
+    }
+
+    IEnumerator BonusEffect()
+    {
+        foreach(var player in playerList)
+        {
+            player.EnableBonus();
+        }
+
+        yield return new WaitForSeconds(mBonusDuration);
+
+        foreach (var player in playerList)
+        {
+            player.DisableBonus();
+        }
     }
 }
