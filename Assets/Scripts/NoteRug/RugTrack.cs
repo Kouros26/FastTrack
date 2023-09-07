@@ -23,14 +23,21 @@ public class RugTrack : MonoBehaviour
     [SerializeField]
     [Tooltip("Prefab to spawn when a basic note is appearing.")]
     private Object NotePrefab;
+
     [SerializeField]
     [Tooltip("Prefab to spawn when a note to hold is appearing.")]
     private Object NoteHoldPrefab;
+
+    [SerializeField]
+    [Tooltip("Prefab to spawn when a bonus note is appearing.")]
+    private Object BonusNotePrefab;
 
     [Tooltip("List of all the notes on the track")]
     private List<Note> NotesOnTrack = new List<Note>();
 
     private NoteRug mNoteRug;
+
+    private Player mPlayer = null;
 
     public void Awake()
     {
@@ -41,6 +48,7 @@ public class RugTrack : MonoBehaviour
     public void SetControllingPLayer(Player pPlayer)
     {
         StrokingArea.SetControllingPLayer(pPlayer);
+        mPlayer = pPlayer;
     }
 
     public void SpawnNote(Note pNote)
@@ -50,8 +58,6 @@ public class RugTrack : MonoBehaviour
             Debug.LogError("Track : " + this.name + " : Failed to spawn note, No Spawn Point.");
             return;
         }
-
-        //TODO : Might have to change to change the prefab for different notes types.
 
         Object prefabToSpawn = null;
 
@@ -65,9 +71,12 @@ public class RugTrack : MonoBehaviour
                 if (NoteHoldPrefab == null) { Debug.Log("NoteHoldPrefab not set !"); } else { prefabToSpawn = NoteHoldPrefab; }
                 break;
 
-            default:
+            case NoteType.Note_BonusShard:
+                if (BonusNotePrefab == null) { Debug.Log("BonusNotePrefab not set !"); } else { prefabToSpawn = BonusNotePrefab; }
                 break;
 
+            default:
+                break;
         }
 
         Object spawnedNote = Instantiate(prefabToSpawn, NoteSpawnPoint.transform.position, NoteSpawnPoint.transform.rotation);
@@ -86,13 +95,13 @@ public class RugTrack : MonoBehaviour
 
     public void Update()
     {
-        if (!ShouldUpdateScrolling()) return;
+        //if (!ShouldUpdateScrolling()) return; //Useless, no time for that.
 
         List<Note> notesToDestroy = new List<Note>();
 
         foreach (var note in NotesOnTrack)
         {
-            if (note == null)
+            if (note == null || (note.mType == NoteType.Note_BonusShard && StrokingArea.IsHoldingBonus()))
                 continue;
 
             if (note.isStroked)
@@ -101,7 +110,7 @@ public class RugTrack : MonoBehaviour
                 continue;
             }
 
-            note.mLerpTimer += Time.deltaTime;
+            note.mLerpTimer += Time.deltaTime / note.noteSpeed;
             float t = note.mLerpTimer / note.mStrokeAreaTime;
 
             if (t > -5)
@@ -131,8 +140,7 @@ public class RugTrack : MonoBehaviour
 
     private bool ShouldUpdateScrolling()
     {
-        //TODO : Stop scrolling when player disconnect/When game pause  
-        return true;
+        return mPlayer != null;
     }
 
     private void OnDrawGizmos()
@@ -141,7 +149,7 @@ public class RugTrack : MonoBehaviour
             return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, Vector3.one / 2);
+        Gizmos.DrawWireCube(NoteSpawnPoint.transform.position, Vector3.one / 2);
     }
 
     public void SetRug(NoteRug pNoteRug)
