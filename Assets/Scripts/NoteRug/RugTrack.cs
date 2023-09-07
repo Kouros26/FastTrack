@@ -118,8 +118,12 @@ public class RugTrack : MonoBehaviour
 
             if (t > -5)
                 note.transform.position = Vector3.LerpUnclamped(NoteSpawnPoint.transform.position, StrokingArea.transform.position, -t);
+
             else
+            {
+                
                 notesToDestroy.Add(note);
+            }
                 
         }
 

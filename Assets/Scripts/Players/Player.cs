@@ -22,23 +22,23 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
-    private int missedTimingPoints = -100;
+    private float missedTimingPoints = -0.1f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"bad\" timing.")]
-    private int badTimingPoints = 100;
+    private float badTimingPoints = 0.1f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"ok\" timing.")]
-    private int okTimingPoints = 300;
+    private float okTimingPoints = 0.3f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when hitting a note with \"excellent\" timing.")]
-    private int excellentTimingPoints = 500;
+    private float excellentTimingPoints = 0.5f;
 
     [SerializeField]
     [Tooltip("Amount of points awarded when holding a note. (points being awarded per frame held).")]
-    private int holdingPoints = 10;
+    private float holdingPoints = 0.01f;
 
     [SerializeField]
     [Tooltip("Percentage of points added to given score when under the grou bonus.")]
@@ -47,9 +47,7 @@ public class Player : MonoBehaviour
     [Tooltip("Time, in second, between two ticks of points while holding a note.")]
     public float holdCooldown = 0.1f;
 
-    private int mPlayerPoints = 0;
-
-    private RugsManager mManager = null;
+    private RugsManager mManager = null; 
 
     private bool mPointsBonusActive = false;
 
@@ -65,13 +63,7 @@ public class Player : MonoBehaviour
 
     public void GivePoints(int pAmount)
     {
-        if (mPointsBonusActive)
-            pAmount = BonusModificator(pAmount);
 
-        mPlayerPoints += pAmount;
-
-
-        Debug.Log(mPlayerPoints);
     }
 
     public void EnableBonus()
