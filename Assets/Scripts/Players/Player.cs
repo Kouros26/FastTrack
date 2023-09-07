@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     [Tooltip("Time, in second, between two ticks of points while holding a note.")]
     public float holdCooldown = 0.1f;
-    
+
     private int mPlayerPoints = 0;
 
     private RugsManager mManager = null; 

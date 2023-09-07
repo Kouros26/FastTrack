@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7e56f9b7-c3a6-4d7e-b404-ac8ef46f41dc}">
+		<property name="assetPath">
+			<value>Fails/Fail_guitar_1.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.35816666666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3f4708e2-f9ad-4d0f-845b-90976e6182bc}</destination>
+		</relationship>
+	</object>
+</objects>
