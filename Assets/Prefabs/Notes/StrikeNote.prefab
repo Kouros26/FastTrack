@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2129505526544501037}
   - component: {fileID: 8018794064157815691}
   m_Layer: 0
-  m_Name: RedNote
+  m_Name: StrikeNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

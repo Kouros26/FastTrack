@@ -113,14 +113,13 @@ public class RugTrack : MonoBehaviour
             note.mLerpTimer += Time.deltaTime / note.noteSpeed;
             float t = note.mLerpTimer / note.mStrokeAreaTime;
 
+            if (t < -1)
+                note.gameObject.transform.localScale = Vector3.zero;
+
             if (t > -5)
                 note.transform.position = Vector3.LerpUnclamped(NoteSpawnPoint.transform.position, StrokingArea.transform.position, -t);
-
             else
-            {
-                
                 notesToDestroy.Add(note);
-            }
                 
         }
 
