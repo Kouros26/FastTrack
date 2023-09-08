@@ -55,10 +55,17 @@
 			<destination>{2377280d-a54b-4638-828d-44c66723301d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8d2afa25-355f-4301-a189-4f1958fd10fb}</destination>
+			<destination>{eea46279-9207-450d-aeff-b67163f16807}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{7ab4dab5-8a1c-4d69-8ee6-afa8ed14fb29}" />
+	<object class="EventAutomatableProperties" id="{7ab4dab5-8a1c-4d69-8ee6-afa8ed14fb29}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+		<property name="voiceStealing">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{68fc583b-c18e-4290-9518-35da412a700e}" />
 	<object class="MarkerTrack" id="{579acffa-df70-48eb-aeb2-8302dc6ead15}" />
 	<object class="GroupTrack" id="{c11ec2f6-4aee-47b1-a5c7-6a2fc83de785}">
@@ -122,7 +129,7 @@
 			<value>18.461538461538463</value>
 		</property>
 		<property name="quantizationInterval">
-			<value>2</value>
+			<value>5</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{c3d470df-73f5-4550-96f4-98bddf2055c7}</destination>

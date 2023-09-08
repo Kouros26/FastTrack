@@ -55,10 +55,14 @@
 			<destination>{e7a2335b-5ee1-4a11-af63-d3e7e5047029}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8d2afa25-355f-4301-a189-4f1958fd10fb}</destination>
+			<destination>{eea46279-9207-450d-aeff-b67163f16807}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{c272526d-15fd-4868-81ff-384b5e5b689b}" />
+	<object class="EventAutomatableProperties" id="{c272526d-15fd-4868-81ff-384b5e5b689b}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{258a9d3b-4934-4c95-aa7d-b5b11311730b}" />
 	<object class="MarkerTrack" id="{618160ee-c09e-4e89-92b0-9ed34ea8372e}" />
 	<object class="GroupTrack" id="{3d10122a-4786-4e3e-9411-bde39edeaa5e}">
@@ -69,6 +73,7 @@
 	<object class="GroupTrack" id="{8ec4dc76-4bf4-4fa7-8391-d90fb072ce0d}">
 		<relationship name="modules">
 			<destination>{8be89f30-c5da-4433-9ffa-e25bca89ccee}</destination>
+			<destination>{18cf387d-c77d-45d7-87ca-862e9cc325d3}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{874dbed6-7201-4d9d-b2d6-e1e601f2e4cf}</destination>
@@ -77,6 +82,7 @@
 	<object class="Timeline" id="{ac3a0d12-88ca-4b84-9904-03375eea2a37}">
 		<relationship name="modules">
 			<destination>{8be89f30-c5da-4433-9ffa-e25bca89ccee}</destination>
+			<destination>{18cf387d-c77d-45d7-87ca-862e9cc325d3}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{3688a9a8-9e8e-47c6-9f9d-73219edf3dca}</destination>
@@ -118,12 +124,23 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{8be89f30-c5da-4433-9ffa-e25bca89ccee}">
+		<property name="start">
+			<value>0.00011268028846153847</value>
+		</property>
 		<property name="length">
 			<value>26</value>
 		</property>
 		<relationship name="event">
 			<destination>{92c18e35-183e-4ebd-9ccc-9f51ebe6b917}</destination>
 		</relationship>
+	</object>
+	<object class="CommandSound" id="{18cf387d-c77d-45d7-87ca-862e9cc325d3}">
+		<property name="length">
+			<value>0</value>
+		</property>
+		<property name="commandType">
+			<value>2</value>
+		</property>
 	</object>
 	<object class="EventMixerGroup" id="{874dbed6-7201-4d9d-b2d6-e1e601f2e4cf}">
 		<property name="name">
@@ -141,7 +158,7 @@
 	</object>
 	<object class="LoopRegion" id="{3688a9a8-9e8e-47c6-9f9d-73219edf3dca}">
 		<property name="position">
-			<value>0</value>
+			<value>0.00011268028846153847</value>
 		</property>
 		<property name="length">
 			<value>26</value>

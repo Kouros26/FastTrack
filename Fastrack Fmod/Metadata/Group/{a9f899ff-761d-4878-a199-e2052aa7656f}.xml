@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{a9f899ff-761d-4878-a199-e2052aa7656f}">
+		<property name="name">
+			<value>Zik</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{81276a28-b5fd-45a6-9386-26b43d1aebf5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b80e8088-a85b-4ab3-95b9-7c9ebc0591a2}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{8d2afa25-355f-4301-a189-4f1958fd10fb}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{81276a28-b5fd-45a6-9386-26b43d1aebf5}">
+		<relationship name="effects">
+			<destination>{3ded49e2-caa3-4c34-9971-e7e0c04403df}</destination>
+			<destination>{125acf76-0feb-4e3e-9720-d0554bc38459}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b80e8088-a85b-4ab3-95b9-7c9ebc0591a2}" />
+	<object class="MixerBusFader" id="{3ded49e2-caa3-4c34-9971-e7e0c04403df}" />
+	<object class="MixerSend" id="{125acf76-0feb-4e3e-9720-d0554bc38459}">
+		<property name="level">
+			<value>-45</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{a863b7c4-66c4-445f-94a6-c1ed8425503a}</destination>
+		</relationship>
+	</object>
+</objects>

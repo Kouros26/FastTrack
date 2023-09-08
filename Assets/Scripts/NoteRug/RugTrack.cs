@@ -160,6 +160,11 @@ public class RugTrack : MonoBehaviour
         if (!pNote.isMissed && pNote.mType != NoteType.Note_BonusShard)
         {
             pNote.isMissed = true; //To be sure this is called once per note.
+            StrokingArea.Instantiate(StrokingArea.failPrefab, gameObject.transform);
+            StrokingArea.spriteRenderer.sprite = StrokingArea.failure;
+            mPlayer.GivePoints(StrokeTiming.Stroke_missed);
+            Invoke("ResetSprite", 0.5f);
+
             GetRug().NoteIsMissed(); 
         }
     }
@@ -197,5 +202,10 @@ public class RugTrack : MonoBehaviour
     public ReadOnlyCollection<Note> GetNotesOnTrack()
     {
         return NotesOnTrack.AsReadOnly();
+    }
+
+    void ResetSprite()
+    {
+        StrokingArea.spriteRenderer.sprite = StrokingArea.idle;
     }
 }

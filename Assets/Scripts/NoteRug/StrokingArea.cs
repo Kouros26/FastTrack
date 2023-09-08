@@ -12,9 +12,14 @@ public class StrokingArea : MonoBehaviour
     [SerializeField] private float okTimingOffset = 0.3f;
     [SerializeField] private float excellentTimingOffset = 0.1f;
 
-    [SerializeField] UnityEngine.Object failPrefab;
+    public UnityEngine.Object failPrefab;
     [SerializeField] UnityEngine.Object okPrefab;
     [SerializeField] UnityEngine.Object excellentPrefab;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite idle;
+    public Sprite success;
+    public Sprite failure;
 
     PlayerInput playerinput;
 
@@ -137,7 +142,7 @@ public class StrokingArea : MonoBehaviour
             {
                 holdCooldownTimer = 0;
                 mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
-                Instantiate(excellentPrefab);
+                Instantiate(excellentPrefab, gameObject.transform);
             }
 
             holdCooldownTimer += Time.deltaTime;
@@ -156,6 +161,8 @@ public class StrokingArea : MonoBehaviour
         if (isInBadTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_bad);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 0.5f);
             return;
         }
 
@@ -164,7 +171,9 @@ public class StrokingArea : MonoBehaviour
         if (isInOkTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_ok);
-            Instantiate(okPrefab);
+            Instantiate(okPrefab, gameObject.transform);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 0.5f);
             return;
         }
 
@@ -173,7 +182,9 @@ public class StrokingArea : MonoBehaviour
         if (isInExcellentTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
-            Instantiate(excellentPrefab);
+            Instantiate(excellentPrefab, gameObject.transform);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 0.5f);
             return;
         }
 
@@ -225,5 +236,10 @@ public class StrokingArea : MonoBehaviour
     internal bool IsHoldingBonus()
     {
         return mHeldBonusNote != null;
+    }
+
+    public void ResetSprite()
+    {
+        spriteRenderer.sprite = idle;
     }
 }
