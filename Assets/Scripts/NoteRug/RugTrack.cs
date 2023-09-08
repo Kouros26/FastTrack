@@ -159,6 +159,7 @@ public class RugTrack : MonoBehaviour
     {
         if (!pNote.isMissed && pNote.mType != NoteType.Note_BonusShard)
         {
+            ResetSprite();
             pNote.isMissed = true; //To be sure this is called once per note.
             StrokingArea.Instantiate(StrokingArea.failPrefab, gameObject.transform);
             StrokingArea.spriteRenderer.sprite = StrokingArea.failure;

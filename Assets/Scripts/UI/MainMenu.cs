@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
 
     private bool AllPlayersConnected()
     {
-        if (playerCount != 1) //TODO : Put this back to 3
+        if (playerCount != 3)
             return false;
 
         return true;
