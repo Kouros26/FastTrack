@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -163,6 +163,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: -1097162333
       objectReference: {fileID: 0}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: a867549906c81fa4b8146c683662e161, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 7783a9da3dc1d6043a442df39d756853, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 01fcf9cca57858147ad452034c7d6b25, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 712665828}
     - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: EventReference.Path
       value: event:/Fails/FailGuitar
@@ -191,6 +207,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: -1097162333
       objectReference: {fileID: 0}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: a867549906c81fa4b8146c683662e161, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 7783a9da3dc1d6043a442df39d756853, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 01fcf9cca57858147ad452034c7d6b25, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 712665828}
     - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: EventReference.Path
       value: event:/Fails/FailGuitar
@@ -307,6 +339,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: a867549906c81fa4b8146c683662e161, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 7783a9da3dc1d6043a442df39d756853, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 01fcf9cca57858147ad452034c7d6b25, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 712665828}
     m_RemovedComponents:
     - {fileID: 4849781688691577901, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
     - {fileID: 4865478509547703809, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
@@ -3290,6 +3338,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1077157942
       objectReference: {fileID: 0}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: fd78c59b6d78d0244bd14da6d97fb1ad, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 23c50a2893a8878499412823d515d3af, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: f53d7b9009155ea49b6cade4afda81e4, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 514136203}
     - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: PlayEvent
       value: 0
@@ -3322,6 +3386,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1077157942
       objectReference: {fileID: 0}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: fd78c59b6d78d0244bd14da6d97fb1ad, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 23c50a2893a8878499412823d515d3af, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: f53d7b9009155ea49b6cade4afda81e4, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 514136203}
     - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: EventReference.Path
       value: event:/Fails/FailBass
@@ -3395,18 +3475,6 @@ PrefabInstance:
       value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
       objectReference: {fileID: 0}
@@ -3450,6 +3518,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: fd78c59b6d78d0244bd14da6d97fb1ad, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 23c50a2893a8878499412823d515d3af, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: f53d7b9009155ea49b6cade4afda81e4, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 514136203}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3919,6 +4003,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1466128663
       objectReference: {fileID: 0}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: 79f78108087d8e24e80577ae956e1a0e, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 11e0fc5413ae2a64e936e91b4dfe4eb6, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 98776ea6879dbc24996ed3bd0d2b62e7, type: 3}
+    - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1127229480}
     - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: EventReference.Path
       value: event:/Fails/FailDrums
@@ -3947,6 +4047,22 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1466128663
       objectReference: {fileID: 0}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: 79f78108087d8e24e80577ae956e1a0e, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 11e0fc5413ae2a64e936e91b4dfe4eb6, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 98776ea6879dbc24996ed3bd0d2b62e7, type: 3}
+    - target: {fileID: 6588145794897075862, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1127229480}
     - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: EventReference.Path
       value: event:/Fails/FailDrums
@@ -4012,22 +4128,6 @@ PrefabInstance:
       value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.48
       objectReference: {fileID: 0}
@@ -4079,6 +4179,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 21300000, guid: 79f78108087d8e24e80577ae956e1a0e, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: failure
+      value: 
+      objectReference: {fileID: 21300000, guid: 11e0fc5413ae2a64e936e91b4dfe4eb6, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 21300000, guid: 98776ea6879dbc24996ed3bd0d2b62e7, type: 3}
+    - target: {fileID: 8636260210372714496, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1127229480}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
