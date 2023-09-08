@@ -158,6 +158,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b1f3bf93-a245-4bf1-a504-9be66663e498",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Button3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4cd3909b-987f-42f8-a9db-fa48e7249acb",
                     "path": "<Keyboard>/w",
                     "interactions": "",
