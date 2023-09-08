@@ -12,9 +12,14 @@ public class StrokingArea : MonoBehaviour
     [SerializeField] private float okTimingOffset = 0.3f;
     [SerializeField] private float excellentTimingOffset = 0.1f;
 
-    [SerializeField] UnityEngine.Object failPrefab;
+    public UnityEngine.Object failPrefab;
     [SerializeField] UnityEngine.Object okPrefab;
     [SerializeField] UnityEngine.Object excellentPrefab;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite idle;
+    public Sprite success;
+    public Sprite failure;
 
     PlayerInput playerinput;
 
@@ -156,6 +161,8 @@ public class StrokingArea : MonoBehaviour
         if (isInBadTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_bad);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 2);
             return;
         }
 
@@ -165,6 +172,8 @@ public class StrokingArea : MonoBehaviour
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_ok);
             Instantiate(okPrefab);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 2);
             return;
         }
 
@@ -174,11 +183,10 @@ public class StrokingArea : MonoBehaviour
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
             Instantiate(excellentPrefab);
+            spriteRenderer.sprite = success;
+            Invoke("ResetSprite", 2);
             return;
         }
-
-        mPlayerRef.GivePoints(StrokeTiming.Stroke_missed);
-        Instantiate(failPrefab);
     }
 
     private void OnDrawGizmos()
@@ -225,5 +233,10 @@ public class StrokingArea : MonoBehaviour
     internal bool IsHoldingBonus()
     {
         return mHeldBonusNote != null;
+    }
+
+    public void ResetSprite()
+    {
+        spriteRenderer.sprite = idle;
     }
 }
