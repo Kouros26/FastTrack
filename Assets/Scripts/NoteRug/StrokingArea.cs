@@ -142,7 +142,7 @@ public class StrokingArea : MonoBehaviour
             {
                 holdCooldownTimer = 0;
                 mPlayerRef.GivePoints(StrokeTiming.Stroke_holding);
-                Instantiate(excellentPrefab);
+                Instantiate(excellentPrefab, gameObject.transform);
             }
 
             holdCooldownTimer += Time.deltaTime;
@@ -162,7 +162,7 @@ public class StrokingArea : MonoBehaviour
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_bad);
             spriteRenderer.sprite = success;
-            Invoke("ResetSprite", 2);
+            Invoke("ResetSprite", 0.5f);
             return;
         }
 
@@ -171,9 +171,9 @@ public class StrokingArea : MonoBehaviour
         if (isInOkTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_ok);
-            Instantiate(okPrefab);
+            Instantiate(okPrefab, gameObject.transform);
             spriteRenderer.sprite = success;
-            Invoke("ResetSprite", 2);
+            Invoke("ResetSprite", 0.5f);
             return;
         }
 
@@ -182,9 +182,9 @@ public class StrokingArea : MonoBehaviour
         if (isInExcellentTiming)
         {
             mPlayerRef.GivePoints(StrokeTiming.Stroke_excellent);
-            Instantiate(excellentPrefab);
+            Instantiate(excellentPrefab, gameObject.transform);
             spriteRenderer.sprite = success;
-            Invoke("ResetSprite", 2);
+            Invoke("ResetSprite", 0.5f);
             return;
         }
     }
