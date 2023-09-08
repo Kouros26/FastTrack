@@ -91,6 +91,23 @@ public class RugTrack : MonoBehaviour
         spawnedComponent.noteSpeed = pNote.noteSpeed;
         spawnedComponent.timeToHold = pNote.timeToHold;
 
+        //Hold Note - tail scaling
+        if(spawnedComponent.mType == NoteType.Note_Hold)
+        {
+            NoteTail tail = spawnedComponent.GetComponentInChildren<NoteTail>();
+
+            float totalDistance = (NoteSpawnPoint.transform.position - StrokingArea.transform.position).magnitude;
+
+            float tailHeight = (totalDistance * spawnedComponent.timeToHold) / spawnedComponent.noteSpeed;
+
+            Vector3 tailScale = new Vector3(tail.transform.localScale.x, tail.transform.localScale.y, tailHeight / 100); //Unity units to "scale units"
+            float tailYOffset = tailScale.z * 5;
+            Vector3 tailPosition = new Vector3(tail.transform.localPosition.x, tailYOffset, tail.transform.localPosition.z);
+
+            tail.transform.localScale = tailScale;
+            tail.transform.localPosition = tailPosition;
+        }
+
         NotesOnTrack.Add(spawnedComponent);
     }
 
