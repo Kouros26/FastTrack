@@ -916,7 +916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &489733700
 Transform:
   m_ObjectHideFlags: 0
@@ -4734,7 +4734,7 @@ MonoBehaviour:
   lifeSlider: {fileID: 2121644286}
   lifeDecay: 0.05
   lifeDisplayThreshold: 0.01
-  mSEventBadEnd: {fileID: 0}
+  mSEventBadEnd: {fileID: 2121644289}
 --- !u!95 &2121644288
 Animator:
   serializedVersion: 5
@@ -4771,11 +4771,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1743360930
+      Data2: 1133267606
+      Data3: 2105103534
+      Data4: 691094919
+    Path: event:/Crowd/End_Bad
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -4785,8 +4785,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &4163111214904556597
 PrefabInstance:
   m_ObjectHideFlags: 0

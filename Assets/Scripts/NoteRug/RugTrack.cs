@@ -162,7 +162,10 @@ public class RugTrack : MonoBehaviour
             pNote.isMissed = true; //To be sure this is called once per note.
             StrokingArea.Instantiate(StrokingArea.failPrefab, gameObject.transform);
             StrokingArea.spriteRenderer.sprite = StrokingArea.failure;
-            mPlayer.GivePoints(StrokeTiming.Stroke_missed);
+            
+            if(mPlayer)
+                mPlayer.GivePoints(StrokeTiming.Stroke_missed);
+
             Invoke("ResetSprite", 0.5f);
 
             GetRug().NoteIsMissed(); 
