@@ -4732,9 +4732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSlider: {fileID: 2121644286}
-  lifeDecay: 0.025
+  lifeDecay: 0
   lifeDisplayThreshold: 0.01
   mSEventBadEnd: {fileID: 2121644289}
+  mPointScriptable: {fileID: 11400000, guid: a636c55a488c39d47983e85414236916, type: 2}
 --- !u!95 &2121644288
 Animator:
   serializedVersion: 5
