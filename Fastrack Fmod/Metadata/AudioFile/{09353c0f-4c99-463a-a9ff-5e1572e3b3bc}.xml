@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{09353c0f-4c99-463a-a9ff-5e1572e3b3bc}">
+		<property name="assetPath">
+			<value>GPUA_IR_OrchestralHall.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2838645833333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3f4708e2-f9ad-4d0f-845b-90976e6182bc}</destination>
+		</relationship>
+	</object>
+</objects>
