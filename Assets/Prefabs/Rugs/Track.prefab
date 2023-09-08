@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5738533137799080298}
   - component: {fileID: 8399451942675851766}
+  - component: {fileID: 8639945537805324447}
   m_Layer: 0
   m_Name: Track
   m_TagString: Untagged
@@ -51,6 +52,38 @@ MonoBehaviour:
   NotePrefab: {fileID: 4972722899093817963, guid: 8f820b6e7e6432f418be504053f2aa0f, type: 3}
   NoteHoldPrefab: {fileID: 7097232280235922381, guid: 94011f65a0f8e4c409a3915d13a0703b, type: 3}
   BonusNotePrefab: {fileID: 7793680438335456122, guid: bb2d7677372a951409d7569ce022a3d4, type: 3}
+  mSEventNoteMissed: {fileID: 8639945537805324447}
+--- !u!114 &8639945537805324447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721474474165944562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &6570512500468797983
 GameObject:
   m_ObjectHideFlags: 0

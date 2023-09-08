@@ -33,6 +33,7 @@ public class Note : MonoBehaviour
     public float    timeToHold = -1;    //Time, in second, the player can hold the note to gain more points.
     public float    holdTimer = 0;      //Internal hold value.
     public bool     isStroked = false;
+    public bool     isMissed = false;
 
 
     public float mStrokeAreaTime = -1;     //Timestamp when note should be in stroke area.
