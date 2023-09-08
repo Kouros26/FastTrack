@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(StudioEventEmitter))]
 public class NoteRug : MonoBehaviour
 {
     [Tooltip("Assigned player controlling the note rug.")]
@@ -19,6 +21,11 @@ public class NoteRug : MonoBehaviour
     [Tooltip("Bonus Track object. (use prefab)")]
     private RugTrack mBonusTrack = null;
 
+    [Header("Sound Events :")]
+    [SerializeField]
+    [Tooltip("Sound event played when player miss a note.")]
+    private StudioEventEmitter mSEventNoteMissed;
+
     private List<Note> mNotesBuffer = new List<Note>(); //Buffer of all the notes to be spawn this frame
 
     private RugsManager mManager;
@@ -32,7 +39,7 @@ public class NoteRug : MonoBehaviour
             track.SetRug(this);
         }
 
-        mBonusTrack.SetRug(this);
+        mBonusTrack.SetRug(this);   
 
         //StartCoroutine(Debug_ContinuousSpawn());
     }
@@ -50,6 +57,13 @@ public class NoteRug : MonoBehaviour
             SpawnNote(note);
             yield return new WaitForSeconds(7f);
         }
+    }
+
+    ///Call this when player miss a note on a track.
+    public void NoteIsMissed()
+    {
+        if (!mSEventNoteMissed.IsPlaying())
+            mSEventNoteMissed.Play();
     }
 
     // Update is called once per frame

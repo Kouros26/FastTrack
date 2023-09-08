@@ -135,6 +135,122 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuitarRug
       objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailGuitar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1192235557
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1182088554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1140377176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1097162333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailGuitar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1192235557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1182088554
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1140377176
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1097162333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailGuitar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1192235557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1182088554
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1140377176
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1097162333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498596114143815349, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: mSEventNoteMissed
+      value: 
+      objectReference: {fileID: 33117593}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailGuitar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1192235557
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1182088554
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1140377176
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1097162333
+      objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.48
@@ -199,6 +315,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+--- !u!114 &33117593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+  m_PrefabInstance: {fileID: 33117592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115775031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +2004,142 @@ PrefabInstance:
       propertyPath: m_Name
       value: BassRug
       objectReference: {fileID: 0}
+    - target: {fileID: 2678254852653486081, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailBass
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -534301271
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1166978224
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1689332803
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1077157942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: PlayEvent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailBass
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -534301271
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1166978224
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1689332803
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1077157942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailBass
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -534301271
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1166978224
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1689332803
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1077157942
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498596114143815349, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: mSEventNoteMissed
+      value: 
+      objectReference: {fileID: 1428758081}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailBass
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -534301271
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1166978224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1689332803
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1077157942
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.48
+      objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.48
@@ -1938,6 +2201,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+--- !u!114 &1428758081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+  m_PrefabInstance: {fileID: 1428758080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629711188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2526,142 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrumsRug
       objectReference: {fileID: 0}
+    - target: {fileID: 2678254852653486081, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailDrums
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1115426757
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1100628406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 71013540
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1466128663
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailDrums
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1115426757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1100628406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 71013540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1466128663
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailDrums
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1115426757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1100628406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 71013540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1466128663
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498596114143815349, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: mSEventNoteMissed
+      value: 
+      objectReference: {fileID: 1896425340}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Fails/FailDrums
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1115426757
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1100628406
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 71013540
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1466128663
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.48
+      objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.48
@@ -2313,6 +2723,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+--- !u!114 &1896425340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
+  m_PrefabInstance: {fileID: 1896425339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1983817679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +3018,7 @@ GameObject:
   - component: {fileID: 2121644286}
   - component: {fileID: 2121644287}
   - component: {fileID: 2121644288}
+  - component: {fileID: 2121644289}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2729,6 +3151,7 @@ MonoBehaviour:
   lifeSlider: {fileID: 2121644286}
   lifeDecay: 0
   lifeDisplayThreshold: 0.01
+  mSEventBadEnd: {fileID: 0}
 --- !u!95 &2121644288
 Animator:
   serializedVersion: 5
@@ -2750,6 +3173,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2121644289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121644282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1001 &4163111214904556597
 PrefabInstance:
   m_ObjectHideFlags: 0
