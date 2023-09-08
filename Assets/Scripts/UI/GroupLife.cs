@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMODUnity;
+using System;
 
+//TODO : Stars panel. Check players scores (add all of them) and check.
+
+[RequireComponent(typeof(StudioEventEmitter))]
 public class GroupLife : MonoBehaviour
 {
     [SerializeField] Slider lifeSlider;
@@ -17,10 +22,20 @@ public class GroupLife : MonoBehaviour
     static float life = 1.0f;
     static float currentLifeLost = 0.0f;
 
+    [Header("Sound Events :")]
+    [SerializeField]
+    [Tooltip("Sound event played when player loose the game.")]
+    private StudioEventEmitter mSEventBadEnd;
+    
+    private bool mGameOverSequencePlaying = false;
+
+    private RugsManager mRugManager;
+
     // Start is called before the first frame update
     void Start()
     {
         life = 1.0f;
+        mRugManager = FindAnyObjectByType<RugsManager>();
     }
 
     private void Update()
@@ -33,11 +48,31 @@ public class GroupLife : MonoBehaviour
             lifeSlider.value = life;
             currentLifeLost = 0.0f;
 
-            if (life <= 0)
+            if (life <= 0 && !GameOverSequenceIsPlaying())
             {
-                SceneManager.LoadScene(2);
+                StartCoroutine("EndSequence");
             }
         }
+    }
+
+    private bool GameOverSequenceIsPlaying()
+    {
+        return mGameOverSequencePlaying;
+    }
+
+    IEnumerator EndSequence()
+    {
+        mGameOverSequencePlaying = true;
+        
+        mRugManager.StopMusic();
+        mSEventBadEnd.Play();
+
+        while (mSEventBadEnd.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        SceneManager.LoadScene(2); //Game over scene
     }
 
     public static void OnLifeChanged(float amount)
