@@ -103,8 +103,19 @@
                 },
                 {
                     "name": "",
-                    "id": "5f41f7f6-8209-48f8-8d81-447b966c5a91",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "c41ae1dd-78e1-408a-ac95-88f4900304ec",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Button2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "231c1459-57d7-4aba-aabf-8983bb36737a",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -114,11 +125,11 @@
                 },
                 {
                     "name": "",
-                    "id": "c41ae1dd-78e1-408a-ac95-88f4900304ec",
-                    "path": "<Keyboard>/z",
+                    "id": "b1f3bf93-a245-4bf1-a504-9be66663e498",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Controller",
                     "action": "Button2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -136,8 +147,8 @@
                 },
                 {
                     "name": "",
-                    "id": "231c1459-57d7-4aba-aabf-8983bb36737a",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "5f41f7f6-8209-48f8-8d81-447b966c5a91",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -152,17 +163,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Button3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1f3bf93-a245-4bf1-a504-9be66663e498",
-                    "path": "<XInputController>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
                     "action": "Button3",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -2247,11 +2247,11 @@ PrefabInstance:
     - target: {fileID: 8688097228320053427, guid: 329560a25b989c34096f4ca17116f1f3, type: 3}
       propertyPath: rugs.Array.data[1]
       value: 
-      objectReference: {fileID: 956845248}
+      objectReference: {fileID: 1142847221}
     - target: {fileID: 8688097228320053427, guid: 329560a25b989c34096f4ca17116f1f3, type: 3}
       propertyPath: rugs.Array.data[2]
       value: 
-      objectReference: {fileID: 1142847221}
+      objectReference: {fileID: 956845248}
     - target: {fileID: 8688097228320053427, guid: 329560a25b989c34096f4ca17116f1f3, type: 3}
       propertyPath: mBonusPhaseCooldown
       value: 0
@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSlider: {fileID: 2121644286}
-  lifeDecay: 0.05
+  lifeDecay: 0.025
   lifeDisplayThreshold: 0.01
   mSEventBadEnd: {fileID: 2121644289}
 --- !u!95 &2121644288
