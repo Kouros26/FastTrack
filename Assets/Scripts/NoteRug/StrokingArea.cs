@@ -187,6 +187,9 @@ public class StrokingArea : MonoBehaviour
             Invoke("ResetSprite", 0.5f);
             return;
         }
+
+        mPlayerRef.GivePoints(StrokeTiming.Stroke_missed);
+        Instantiate(failPrefab);
     }
 
     private void OnDrawGizmos()
