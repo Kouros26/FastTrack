@@ -19,6 +19,8 @@ public class GroupLife : MonoBehaviour
     //[SerializeField] float mistakesDamage = 0.1f;
     //Combos aren't implemented yet
 
+    static Animator anim;
+
     static float life = 1.0f;
     static float currentLifeLost = 0.0f;
 
@@ -36,12 +38,15 @@ public class GroupLife : MonoBehaviour
     {
         life = 1.0f;
         mRugManager = FindAnyObjectByType<RugsManager>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         currentLifeLost += lifeDecay * Time.deltaTime;
         life -= lifeDecay * Time.deltaTime;
+
+        //anim.Play("DecayIdle");
 
         if (currentLifeLost >= lifeDisplayThreshold)
         {
@@ -77,6 +82,12 @@ public class GroupLife : MonoBehaviour
 
     public static void OnLifeChanged(float amount)
     {
+        if (amount > 0)
+            anim.Play("GainHP");
+
+        else
+            anim.Play("LoseHP");
+
         if (life + amount > 1)
         {
             life = 1;
