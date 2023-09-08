@@ -569,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
-      value: Button1
+      value: Button2
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: failPrefab
@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: ActionName
-      value: Button1
+      value: Button3
       objectReference: {fileID: 0}
     - target: {fileID: 7637980290758764049, guid: 730394c9021fe7a4db5a917f9a5921ee, type: 3}
       propertyPath: failPrefab

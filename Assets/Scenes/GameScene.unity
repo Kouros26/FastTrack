@@ -163,122 +163,6 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: -1097162333
       objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Fails/FailGuitar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMinDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -1192235557
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1182088554
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1140377176
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268548951669650524, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -1097162333
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Fails/FailGuitar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMinDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -1192235557
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1182088554
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1140377176
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688407147329660418, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -1097162333
-      objectReference: {fileID: 0}
-    - target: {fileID: 7498596114143815349, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: mSEventNoteMissed
-      value: 
-      objectReference: {fileID: 33117593}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Fails/FailGuitar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMinDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -1192235557
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1182088554
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1140377176
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620907285067126414, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -1097162333
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Fails/FailGuitar
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: OverrideMinDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -1192235557
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1182088554
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1140377176
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004912720057018392, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -1097162333
-      objectReference: {fileID: 0}
     - target: {fileID: 5253046702229504722, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: idle
       value: 
@@ -3591,10 +3475,6 @@ PrefabInstance:
       value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
       objectReference: {fileID: 0}
@@ -4256,14 +4136,6 @@ PrefabInstance:
       value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370252577284912723, guid: 82f99be29c6d8b543b453e573d2abb0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2299995
       objectReference: {fileID: 0}
@@ -4838,7 +4710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSlider: {fileID: 2121644286}
-  lifeDecay: 0
+  lifeDecay: 0.05
   lifeDisplayThreshold: 0.01
   mSEventBadEnd: {fileID: 0}
 --- !u!95 &2121644288

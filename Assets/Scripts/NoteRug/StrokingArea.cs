@@ -8,13 +8,20 @@ using UnityEngine.SocialPlatforms.Impl;
 public class StrokingArea : MonoBehaviour
 {
     [Header("Stroke Timings")]
-    [SerializeField] private float badTimingOffset = 0.5f;
-    [SerializeField] private float okTimingOffset = 0.3f;
-    [SerializeField] private float excellentTimingOffset = 0.1f;
+    [SerializeField]
+    [Range(0.0f, 5f)]
+    private float badTimingOffset = 0.5f;
+    [SerializeField]
+    [Range(0.0f, 5f)]
+    private float okTimingOffset = 0.3f;
+    [SerializeField]
+    [Range(0.0f, 5f)]
+    private float excellentTimingOffset = 0.1f;
 
     public UnityEngine.Object failPrefab;
     [SerializeField] UnityEngine.Object okPrefab;
     [SerializeField] UnityEngine.Object excellentPrefab;
+    [SerializeField] UnityEngine.Object badPrefab;
 
     public SpriteRenderer spriteRenderer;
     public Sprite idle;
@@ -55,7 +62,11 @@ public class StrokingArea : MonoBehaviour
     {
         if (!context.canceled) return;
 
-        if(mNoteHeld != null) { mNoteHeld.isStroked = true; }
+        if(mNoteHeld != null) 
+        {
+            mNoteHeld.isStroked = true;
+            ResetSprite();
+        }
 
         if (mHeldBonusNote != null)
         {
@@ -89,18 +100,18 @@ public class StrokingArea : MonoBehaviour
             {
                 case NoteType.Note_Hold:
                     StartHoldingNote(note);
-                    continue;
+                    return;
 
                 case NoteType.Note_Stroke:
                     StrikeNote(note);
-                    continue;
+                    return;
 
                 case NoteType.Note_BonusShard:
                     StartHoldingBonus(note);
-                    continue;
+                    return;
 
                 default:
-                    break;
+                    return;
             }
         }
     }
@@ -158,8 +169,11 @@ public class StrokingArea : MonoBehaviour
 
         bool isInBadTiming = note.transform.position.y >= this.transform.position.y + okTimingOffset;
 
+        ResetSprite();
+
         if (isInBadTiming)
         {
+            Instantiate(badPrefab, gameObject.transform);
             mPlayerRef.GivePoints(StrokeTiming.Stroke_bad);
             spriteRenderer.sprite = success;
             Invoke("ResetSprite", 0.5f);

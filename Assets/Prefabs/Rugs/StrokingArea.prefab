@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7597187249307059205
 Transform:
@@ -44,7 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94118538336912d4dbb93d53336c2a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  badTimingOffset: 0.5
-  okTimingOffset: 0.3
-  excellentTimingOffset: 0.1
+  badTimingOffset: 1.832289
+  okTimingOffset: 1.0805368
+  excellentTimingOffset: 0.292929
+  failPrefab: {fileID: 5477135199781698625, guid: 3ae29466cf20e2a43a8de801e80de458, type: 3}
+  okPrefab: {fileID: 3741378969157303511, guid: a0ba069c15d57ff47aeb46cd737a4946, type: 3}
+  excellentPrefab: {fileID: 4075673268502880154, guid: 1627b0ff57e97b64d9aa3e0486d6d81d, type: 3}
+  badPrefab: {fileID: 5477135199781698625, guid: 34f09cf847f59194b9039b6f9a961e92, type: 3}
+  spriteRenderer: {fileID: 0}
+  idle: {fileID: 0}
+  success: {fileID: 0}
+  failure: {fileID: 0}
   ActionName: 
+  holdCooldownTimer: 0
