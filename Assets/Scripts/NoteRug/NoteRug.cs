@@ -62,8 +62,8 @@ public class NoteRug : MonoBehaviour
     ///Call this when player miss a note on a track.
     public void NoteIsMissed()
     {
-        //if (!mSEventNoteMissed.IsPlaying())
-        //    mSEventNoteMissed.Play();
+        if (!mSEventNoteMissed.IsPlaying())
+            mSEventNoteMissed.Play();
     }
 
     // Update is called once per frame
