@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{93474142-6c5a-4f36-bc20-795184dda08d}">
+		<property name="assetPath">
+			<value>Sfx/Tomato_Hit2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.31735416666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3f4708e2-f9ad-4d0f-845b-90976e6182bc}</destination>
+		</relationship>
+	</object>
+</objects>
