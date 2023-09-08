@@ -312,4 +312,10 @@ public class RugsManager : MonoBehaviour
             player.DisableBonus();
         }
     }
+
+    public void StopMusic()
+    {
+        //TODO : Should i do fadeout from code ?
+        mStudioEventEmitter.Stop();
+    }
 }

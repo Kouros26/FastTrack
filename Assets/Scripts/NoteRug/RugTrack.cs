@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -95,7 +96,7 @@ public class RugTrack : MonoBehaviour
 
     public void Update()
     {
-        //if (!ShouldUpdateScrolling()) return; //Useless, no time for that.
+        //Terrible code.
 
         List<Note> notesToDestroy = new List<Note>();
 
@@ -113,9 +114,15 @@ public class RugTrack : MonoBehaviour
             note.mLerpTimer += Time.deltaTime / note.noteSpeed;
             float t = note.mLerpTimer / note.mStrokeAreaTime;
 
+            //Just past the line
             if (t < -1)
+                NoteMissed(note);
+
+            //Hide note when a little under the bar
+            if (t < -1.2)
                 note.gameObject.transform.localScale = Vector3.zero;
 
+            //Destroy if needed, update otherwise
             if (t > -5)
                 note.transform.position = Vector3.LerpUnclamped(NoteSpawnPoint.transform.position, StrokingArea.transform.position, -t);
             else
@@ -129,6 +136,15 @@ public class RugTrack : MonoBehaviour
         }
 
         notesToDestroy.Clear();
+    }
+
+    private void NoteMissed(Note pNote)
+    {
+        if (!pNote.isMissed && pNote.mType != NoteType.Note_BonusShard)
+        {
+            pNote.isMissed = true; //To be sure this is called once per note.
+            GetRug().NoteIsMissed(); 
+        }
     }
 
     private void DestroyNote(Note note)
