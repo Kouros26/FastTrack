@@ -73,7 +73,7 @@ public class RugsManager : MonoBehaviour
 
     private bool BonusReleaseCoroutine = false;
 
-    private List<Player> playerList = new List<Player>();
+    public List<Player> playerList = new List<Player>();
 
     private void Awake()
     {
@@ -187,6 +187,10 @@ public class RugsManager : MonoBehaviour
 
             newNote = MakeNoteFromParam("Drums3", 2);
             if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
+        }
+        else
+        {
+            FindObjectOfType<GroupLife>().MakeGameOver();
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using FMODUnity;
 using System;
+using UnityEngine.InputSystem;
 
 //TODO : Stars panel. Check players scores (add all of them) and check.
 
@@ -33,6 +34,8 @@ public class GroupLife : MonoBehaviour
 
     private RugsManager mRugManager;
 
+    public ScriptablePoints mPointScriptable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,9 +56,9 @@ public class GroupLife : MonoBehaviour
             lifeSlider.value = life;
             currentLifeLost = 0.0f;
 
-            if (life <= 0 && !GameOverSequenceIsPlaying())
-            {
-                StartCoroutine("EndSequence");
+            if (life <= 0 )
+            { 
+                MakeGameOver();
             }
         }
     }
@@ -63,6 +66,21 @@ public class GroupLife : MonoBehaviour
     private bool GameOverSequenceIsPlaying()
     {
         return mGameOverSequencePlaying;
+    }
+
+    public void MakeGameOver()
+    {
+        mPointScriptable.mScore = 0;
+
+        foreach (var player in FindAnyObjectByType<RugsManager>().playerList)
+        {
+            mPointScriptable.mScore += player.GetPoints();
+        }
+        
+        if (!GameOverSequenceIsPlaying())
+        {
+            StartCoroutine("EndSequence");
+        }
     }
 
     IEnumerator EndSequence()
@@ -77,7 +95,7 @@ public class GroupLife : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        SceneManager.LoadScene(2); //Game over scene
+        SceneManager.LoadScene(3); //Game over scene
     }
 
     public static void OnLifeChanged(float amount)

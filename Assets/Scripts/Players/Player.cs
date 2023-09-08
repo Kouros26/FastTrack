@@ -52,6 +52,10 @@ public class Player : MonoBehaviour
     private RugsManager mManager = null; 
 
     private bool mPointsBonusActive = false;
+    public int GetPoints()
+    {
+        return mPlayerPoints;
+    }
 
     public void Awake()
     {
