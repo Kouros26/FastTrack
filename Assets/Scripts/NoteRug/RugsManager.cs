@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class RugsManager : MonoBehaviour
@@ -320,5 +321,23 @@ public class RugsManager : MonoBehaviour
     {
         //TODO : Should i do fadeout from code ?
         mStudioEventEmitter.Stop();
+    }
+
+    internal int GetGuitarScore()
+    {
+        if (playerList.Count < 1) return -1;
+        return playerList[0] != null ? playerList[0].GetPoints() : -1;
+    }
+
+    internal int GetDrumScore()
+    {
+        if (playerList.Count < 2) return -1;
+        return playerList[1] != null ? playerList[0].GetPoints() : -1;
+    }
+
+    internal int GetBassScore()
+    {
+        if (playerList.Count < 3) return -1;
+        return playerList[2] != null ? playerList[0].GetPoints() : -1;
     }
 }

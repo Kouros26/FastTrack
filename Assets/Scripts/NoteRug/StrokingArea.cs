@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -44,7 +45,10 @@ public class StrokingArea : MonoBehaviour
 
     [HideInInspector]
     public float holdCooldownTimer = 0; //For hold points tick cooldown;
-    
+
+    [Header("Visuals")]
+    [SerializeField]
+    private Animator mAreaAnimator;    
 
     public void SetControllingPLayer(Player pPlayer)
     {
@@ -57,6 +61,13 @@ public class StrokingArea : MonoBehaviour
         mPlayerInputAction.canceled += ActionCanceled;
     }
 
+    private void StopHolding()
+    {
+        mNoteHeld.isStroked = true;
+        mAreaAnimator.SetBool("Hold", false);
+        ResetSprite();
+    }
+
     //Button released
     public void ActionCanceled(InputAction.CallbackContext context)
     {
@@ -64,8 +75,7 @@ public class StrokingArea : MonoBehaviour
 
         if(mNoteHeld != null) 
         {
-            mNoteHeld.isStroked = true;
-            ResetSprite();
+            StopHolding();
         }
 
         if (mHeldBonusNote != null)
@@ -75,7 +85,6 @@ public class StrokingArea : MonoBehaviour
         }
 
         mHeldBonusNote = null;
-        mNoteHeld = null;
     }
     
     //Button pressed
@@ -85,6 +94,8 @@ public class StrokingArea : MonoBehaviour
         {
             return; 
         }
+
+        mAreaAnimator.SetTrigger("Pressed");
 
         foreach (Note note in mTrack.GetNotesOnTrack())
         {
@@ -136,6 +147,7 @@ public class StrokingArea : MonoBehaviour
         if (mNoteHeld != null) return; //Two notes at the same time ? nonono.
 
         mNoteHeld = pNote;
+        mAreaAnimator.SetBool("Hold", true);
         mNoteHeld.holdTimer = 0;
     }
 
@@ -157,9 +169,10 @@ public class StrokingArea : MonoBehaviour
             }
 
             holdCooldownTimer += Time.deltaTime;
-
             mNoteHeld.holdTimer += Time.deltaTime;
-            if (mNoteHeld.holdTimer >= mNoteHeld.timeToHold) mNoteHeld = null;
+
+            if (mNoteHeld.holdTimer >= mNoteHeld.timeToHold) 
+                StopHolding();
         }
     }
 
