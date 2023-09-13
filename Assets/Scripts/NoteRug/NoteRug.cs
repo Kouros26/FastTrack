@@ -128,7 +128,7 @@ public class NoteRug : MonoBehaviour
 
     public bool CanSpawnBonusNote()
     {
-        return mBonusTrack != null && mBonusTrack.GetNotesOnTrack().Count <= 0;
+        return mBonusTrack != null && mBonusTrack.GetNotesOnTrack().Count <= 0 && mPlayer != null;
     }
 
     public void SpawnBonusNote()

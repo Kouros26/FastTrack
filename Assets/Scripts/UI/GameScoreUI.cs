@@ -37,9 +37,9 @@ public class GameScoreUI : MonoBehaviour
 
     private void UpdateScore(TMP_Text pScoreText, int pScore)
     {
-        //likely no player, so no text.
+        //No player
         if (pScore < 0)
-            pScoreText.text = "";
+            pScoreText.text = "Press start to join !";
         else
             pScoreText.text = "Score : " + pScore;
     }

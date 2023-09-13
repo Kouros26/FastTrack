@@ -63,6 +63,7 @@ public class StrokingArea : MonoBehaviour
 
     private void StopHolding()
     {
+        mNoteHeld.isHeld = false;
         mNoteHeld.isStroked = true;
         mAreaAnimator.SetBool("Hold", false);
         ResetSprite();
@@ -146,8 +147,11 @@ public class StrokingArea : MonoBehaviour
     {
         if (mNoteHeld != null) return; //Two notes at the same time ? nonono.
 
-        mNoteHeld = pNote;
         mAreaAnimator.SetBool("Hold", true);
+        mAreaAnimator.ResetTrigger("Pressed");
+
+        mNoteHeld = pNote;
+        mNoteHeld.isHeld = true;
         mNoteHeld.holdTimer = 0;
     }
 
