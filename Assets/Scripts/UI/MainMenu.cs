@@ -8,13 +8,38 @@ using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using System;
 
+//This would benefit from a total rewrite.
+//Right now you can't really select a player with this.
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] UnityEngine.Object startObject;
     [SerializeField] int startTextAlpha = 60;
     Image startImage;
 
-    int playerCount = 0;
+    private int playerCount = 0;
+
+    [Header("Game")]
+
+    [SerializeField]
+    [Tooltip("Numer of player required, at minimum, to start the game.")]
+    private int mMinimumPlayers = 1;
+    [SerializeField]
+    [Tooltip("Numer of maximum players")]
+    private int mMaxPlayers = 3;
+
+    [Header("Lobby")]
+
+    [Space(5)]
+
+    [SerializeField]
+    [Tooltip("Images that will be activated once the corresponding player join the game.")]
+    private List<Image> mPlayersSprites = new List<Image>(3);
+
+    [Space(5)]
+
+    [SerializeField]
+    [Tooltip("\"Press Start\n texts that will be de-activated once the corresponding player join the game.")]
+    private List<TMP_Text> mStartTexts = new List<TMP_Text>(3);
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +50,13 @@ public class MainMenu : MonoBehaviour
 
         startImage.color = new Color(1, 1, 1, Alpha255to1(startTextAlpha));
 
-        if (AllPlayersConnected())
+        if (EnoughtPlayersConnected())
             startImage.color = new Color(1, 1, 1, 1);
     }
 
     public void OnClickedPlay()
     {
-        if (AllPlayersConnected())
+        if (EnoughtPlayersConnected())
             SceneManager.LoadScene(1);
     }
 
@@ -45,9 +70,27 @@ public class MainMenu : MonoBehaviour
         Debug.Log("PlayerInput id : " + playerInput.playerIndex);
         playerCount++;
 
-        if (AllPlayersConnected())
-            startImage.color = new Color(1, 1, 1, 1);
+        if (playerCount <= mMaxPlayers)
+            ActivatePlayerSprite(playerCount);
+        else
+            Debug.LogWarning("Too many players ! Last joined will be ignored !");
 
+        if (EnoughtPlayersConnected())
+            startImage.color = new Color(1, 1, 1, 1);
+    }
+
+    private void ActivatePlayerSprite(int pPlayerIdx)
+    {
+        int listIdx = pPlayerIdx - 1;
+
+        Image    sprite     = mPlayersSprites[listIdx];
+        TMP_Text startText  = mStartTexts[listIdx];
+
+        if (sprite == null || startText == null)
+            return;
+
+        sprite.gameObject.SetActive(true);
+        startText.gameObject.SetActive(false);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
@@ -55,16 +98,13 @@ public class MainMenu : MonoBehaviour
         Debug.Log("PlayerLeft id : " + playerInput.playerIndex);
         playerCount--;
 
-        if (!AllPlayersConnected())
+        if (!EnoughtPlayersConnected())
             startImage.color = new Color(1, 1, 1, Alpha255to1(startTextAlpha));
     }
 
-    private bool AllPlayersConnected()
+    private bool EnoughtPlayersConnected()
     {
-        if (playerCount != 3)
-            return false;
-
-        return true;
+        return playerCount >= mMinimumPlayers;
     }
 
     private float Alpha255to1(int entry)

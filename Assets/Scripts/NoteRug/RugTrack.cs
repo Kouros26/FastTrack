@@ -156,7 +156,7 @@ public class RugTrack : MonoBehaviour
 
     private void NoteMissed(Note pNote)
     {
-        if (!pNote.isMissed && pNote.mType != NoteType.Note_BonusShard)
+        if (!pNote.isMissed && pNote.mType != NoteType.Note_BonusShard && !pNote.isStroked && !pNote.isHeld)
         {
             ResetSprite();
             pNote.isMissed = true; //To be sure this is called once per note.

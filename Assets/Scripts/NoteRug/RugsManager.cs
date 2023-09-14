@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class RugsManager : MonoBehaviour
@@ -112,9 +113,9 @@ public class RugsManager : MonoBehaviour
 
         if (mBonusNoteSpawnTimer <= mRealBonusNoteSpawnCooldown)
             return;
-        
+
         mBonusNoteSpawnTimer = 0;
-        mRealBonusNoteSpawnCooldown = mBonusNoteSpawnCooldown + UnityEngine.Random.Range(0.0f, mBonusNoteSpawnRandomModifier+1);
+        mRealBonusNoteSpawnCooldown = mBonusNoteSpawnCooldown + UnityEngine.Random.Range(0.0f, mBonusNoteSpawnRandomModifier + 1);
 
         List<NoteRug> rugsCopy = new List<NoteRug>(rugs);
 
@@ -158,40 +159,31 @@ public class RugsManager : MonoBehaviour
             EventInstance SongEventInstannce = mStudioEventEmitter.EventInstance;
 
             //
-
-            Note newNote;
-
-            newNote = MakeNoteFromParam("Guitar1", 0);
-            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Guitar2", 1);
-            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Guitar3", 2);
-            if (newNote != null) { rugs[0].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Bass1", 0);
-            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Bass2", 1);
-            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Bass3", 2);
-            if (newNote != null) { rugs[1].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Drums1", 0);
-            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Drums2", 1);
-            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
-
-            newNote = MakeNoteFromParam("Drums3", 2);
-            if (newNote != null) { rugs[2].ProcessNoteSignal(newNote); }
+            UpdateRug(rugs[0], "Guitar");
+            UpdateRug(rugs[1], "Bass");
+            UpdateRug(rugs[2], "Drums");
         }
         else
         {
             FindObjectOfType<GroupLife>().MakeGameOver();
         }
+    }
+
+    private void UpdateRug(NoteRug pRug, string pInstrument)
+    {
+        if (pRug.GetPlayer() == null)
+            return;
+
+        Note newNote;
+
+        newNote = MakeNoteFromParam(pInstrument + "1", 0);
+        if (newNote != null) { pRug.ProcessNoteSignal(newNote); }
+
+        newNote = MakeNoteFromParam(pInstrument + "2", 1);
+        if (newNote != null) { pRug.ProcessNoteSignal(newNote); }
+
+        newNote = MakeNoteFromParam(pInstrument + "3", 2);
+        if (newNote != null) { pRug.ProcessNoteSignal(newNote); }
     }
 
     private Note MakeNoteFromParam(string paramName, int rugTrack)
@@ -248,8 +240,6 @@ public class RugsManager : MonoBehaviour
     //Assign an empty rug to a player.
     public void AssignRug(Player pPlayer)
     {
-
-
         foreach (var rug in rugs)
         {
             if (rug.GetPlayer() == null)
@@ -274,7 +264,7 @@ public class RugsManager : MonoBehaviour
 
     public void BonusIsReleased()
     {
-        if(!BonusReleaseCoroutine && bonusHeldCount >= playerCount)
+        if (!BonusReleaseCoroutine && bonusHeldCount >= playerCount)
             StartCoroutine("GroupBonusReleaseWindow");
 
         bonusHeldCount--;
@@ -287,7 +277,7 @@ public class RugsManager : MonoBehaviour
 
         while (groupTimer > 0)
         {
-            groupTimer-= Time.deltaTime;
+            groupTimer -= Time.deltaTime;
 
             if (bonusHeldCount <= 0)
             {
@@ -303,7 +293,7 @@ public class RugsManager : MonoBehaviour
 
     IEnumerator BonusEffect()
     {
-        foreach(var player in playerList)
+        foreach (var player in playerList)
         {
             player.EnableBonus();
         }
@@ -320,5 +310,34 @@ public class RugsManager : MonoBehaviour
     {
         //TODO : Should i do fadeout from code ?
         mStudioEventEmitter.Stop();
+    }
+
+    //Direct reference :/
+    internal int GetGuitarScore()
+    {
+        if (playerList.Count < 1) return -1;
+        return playerList[0] != null ? playerList[0].GetPoints() : -1;
+    }
+
+    internal int GetDrumScore()
+    {
+        if (playerList.Count < 2) return -1;
+        return playerList[1] != null ? playerList[0].GetPoints() : -1;
+    }
+
+    internal int GetBassScore()
+    {
+        if (playerList.Count < 3) return -1;
+        return playerList[2] != null ? playerList[0].GetPoints() : -1;
+    }
+
+    internal void OnPause()
+    {
+        mStudioEventEmitter.EventInstance.setPaused(true);
+    }
+
+    internal void OnResume()
+    {
+        mStudioEventEmitter.EventInstance.setPaused(false);
     }
 }

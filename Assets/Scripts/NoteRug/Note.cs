@@ -28,17 +28,18 @@ public class Note : MonoBehaviour
 {
     public NoteType mType = NoteType.Note_Null;
     
-    public float    noteSpeed =  1;     //Time, in second, for to reach the end of the track. Aka offset.
-    public int      mRugTrack = -1;     //Track id on the rug, from left to right, starting at 0, -1 is invalid;
-    public float    timeToHold = -1;    //Time, in second, the player can hold the note to gain more points.
-    public float    holdTimer = 0;      //Internal hold value.
-    public bool     isStroked = false;
-    public bool     isMissed = false;
+    public float    noteSpeed   =  1;   //Time, in second, for to reach the end of the track. Aka offset.
+    public int      mRugTrack   = -1;   //Track id on the rug, from left to right, starting at 0, -1 is invalid;
+    public float    timeToHold  = -1;   //Time, in second, the player can hold the note to gain more points.
+    public float    holdTimer   = 0;    //Internal hold value.
 
+    public bool     isStroked   = false;
+    public bool     isMissed    = false;
+    public bool     isHeld      = false;
 
-    public float mStrokeAreaTime = -1;     //Timestamp when note should be in stroke area.
-    public float mSpawnTime = -1;          //Time note spawned
-    public float mLerpTimer = 0;           //Internal lerp value.
+    public float mStrokeAreaTime    = -1;     //Timestamp when note should be in stroke area.
+    public float mSpawnTime         = -1;     //Time note spawned
+    public float mLerpTimer         = 0;      //Internal lerp value.
     
     public void Spawned()
     {
