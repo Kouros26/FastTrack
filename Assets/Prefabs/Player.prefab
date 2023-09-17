@@ -170,6 +170,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 36eeb8b2-1c4e-4172-9a62-682e7dd6be78
     m_ActionName: PlayerActionMap/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 020deddf-7c43-4496-9a7b-dc6d53074f4f
+    m_ActionName: PlayerActionMap/HoldBonus[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: PlayerActionMap
@@ -188,8 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2745581538769131056, guid: 06a22dcfad2e45e4493f08a38022007a, type: 3}
+  missedTimingPoints: -0.1
   badTimingPoints: 100
-  okTimingPoints: 300
+  okTimingPoints: 200
   excellentTimingPoints: 500
   holdingPoints: 10
+  mPointBonusPercentage: 100
   holdCooldown: 0.1

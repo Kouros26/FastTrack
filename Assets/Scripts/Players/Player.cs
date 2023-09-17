@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
     private float holdingPoints = 0.01f;
 
     [SerializeField]
-    [Tooltip("Percentage of points added to given score when under the grou bonus.")]
+    [Tooltip("Percentage point boost when under group bonus.")]
     private int mPointBonusPercentage = 100;
 
     [Tooltip("Time, in second, between two ticks of points while holding a note.")]
@@ -91,25 +92,25 @@ public class Player : MonoBehaviour
         switch (pTiming)
         {
             case StrokeTiming.Stroke_bad:
-                pointsGiven = (int)(badTimingPoints * 1000);
+                pointsGiven = (int)(badTimingPoints);
                 Debug.Log("BAD !");
                 GroupLife.OnLifeChanged(badTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_ok:
-                pointsGiven = (int)(okTimingPoints * 1000);
+                pointsGiven = (int)(okTimingPoints);
                 Debug.Log("OK");
                 GroupLife.OnLifeChanged(okTimingPoints);
                 break;
 
             case StrokeTiming.Stroke_excellent:
                 GroupLife.OnLifeChanged(excellentTimingPoints);
-                pointsGiven = (int)(excellentTimingPoints * 1000);
+                pointsGiven = (int)(excellentTimingPoints);
                 Debug.Log("Excellent");
                 break;
 
             case StrokeTiming.Stroke_holding:
-                pointsGiven = (int)(holdingPoints * 1000);
+                pointsGiven = (int)(holdingPoints);
                 Debug.Log("Holding");
                 GroupLife.OnLifeChanged(holdingPoints);
                 break;
@@ -188,5 +189,10 @@ public class Player : MonoBehaviour
     public void OnPauseTriggered(InputAction.CallbackContext context)
     {
         gameManager.OnPause();
+    }
+
+    internal void ResetScore()
+    {
+        mPlayerPoints = 0;
     }
 }

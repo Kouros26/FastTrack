@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -28,8 +27,6 @@ public class StrokingArea : MonoBehaviour
     public Sprite idle;
     public Sprite success;
     public Sprite failure;
-
-    PlayerInput playerinput;
 
     [Header("Inputs")]
     [SerializeField]

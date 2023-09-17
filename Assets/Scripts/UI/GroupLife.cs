@@ -17,24 +17,28 @@ public class GroupLife : MonoBehaviour
 
     [Tooltip("Life will be updated on the slider every x bits of life lost (life goes from 0 to 1)")]
     [SerializeField] float lifeDisplayThreshold = 0.1f;
-    //[SerializeField] float mistakesDamage = 0.1f;
-    //Combos aren't implemented yet
+
+    [Header("Sound Events :")]
+    
+    [SerializeField]
+    [Tooltip("Sound event played when player loose the game.")]
+    private StudioEventEmitter mSEventBadEnd;
+    [SerializeField]
+    [Tooltip("Sound event played when player win the game.")]
+    private StudioEventEmitter mSEventGoodEnd;
+
+    [Space(5)]
+
+    [Header("Points Scriptable object")]
+    public ScriptablePoints mPointScriptable;
+
+    private bool mGameOverSequencePlaying = false;
+    private RugsManager mRugManager;
 
     static Animator anim;
 
     static float life = 1.0f;
     static float currentLifeLost = 0.0f;
-
-    [Header("Sound Events :")]
-    [SerializeField]
-    [Tooltip("Sound event played when player loose the game.")]
-    private StudioEventEmitter mSEventBadEnd;
-    
-    private bool mGameOverSequencePlaying = false;
-
-    private RugsManager mRugManager;
-
-    public ScriptablePoints mPointScriptable;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +60,8 @@ public class GroupLife : MonoBehaviour
             lifeSlider.value = life;
             currentLifeLost = 0.0f;
 
-            if (life <= 0 )
-            { 
+            if (life <= 0)
+            {
                 MakeGameOver();
             }
         }
@@ -76,18 +80,25 @@ public class GroupLife : MonoBehaviour
         {
             mPointScriptable.mScore += player.GetPoints();
         }
-        
+
         if (!GameOverSequenceIsPlaying())
         {
-            StartCoroutine("EndSequence");
+            mRugManager.StopMusic();
+            mGameOverSequencePlaying = true;
+
+            if (life <= 0)
+            {
+                StartCoroutine("LooseEndScreen");
+            }
+            else
+            {
+                StartCoroutine("WinEndScreen");
+            }
         }
     }
 
-    IEnumerator EndSequence()
+    IEnumerator LooseEndScreen()
     {
-        mGameOverSequencePlaying = true;
-        
-        mRugManager.StopMusic();
         mSEventBadEnd.Play();
 
         while (mSEventBadEnd.IsPlaying())
@@ -95,7 +106,19 @@ public class GroupLife : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        SceneManager.LoadScene(3); //Game over scene
+        SceneManager.LoadScene(2); //Game over scene
+    }
+
+    IEnumerator WinEndScreen()
+    {
+        mSEventGoodEnd.Play();
+
+        while (mSEventBadEnd.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        SceneManager.LoadScene(3); //Stars scene
     }
 
     public static void OnLifeChanged(float amount)

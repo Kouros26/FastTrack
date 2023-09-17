@@ -12,14 +12,24 @@ using UnityEngine;
 public class RugsManager : MonoBehaviour
 {
     [Header("Rugs :")]
-    [SerializeField][Tooltip("Add all rugs controlled by players.")] private List<NoteRug> rugs;
+
+    [Space(10)]
+
+    [SerializeField]
+    [Tooltip("Add all rugs controlled by players.")]
+    private List<NoteRug> rugs;
 
     [Header("Song :")]
+
+    [Space(10)]
+
     [SerializeField]
     private EventReference SongEvent;
 
     [Space(10)]
+
     [Header("Coop Bonuses :")]
+
     [Space(10)]
 
     [SerializeField]
@@ -27,42 +37,58 @@ public class RugsManager : MonoBehaviour
     [Tooltip("Time, in seconds, between two bonus phases.")]
     private float mBonusPhaseCooldown = 30;
 
+    [Space(5)]
+
     [SerializeField]
     [Range(0.0f, 30.0f)]
     [Tooltip("Time, in second, which will help generate a random offset btween 0 and mBonusPhaseRandomModifier to sligtly randomise the bonus phase.")]
     private float mBonusPhaseRandomModifier = 5;
+
+    [Space(5)]
 
     [SerializeField]
     [Range(0.0f, 30.0f)]
     [Tooltip("When in bonus phase, time, in seconds, between two spawn (global cooldown between tracks).")]
     private float mBonusNoteSpawnCooldown = 5;
 
+    [Space(5)]
+
     [SerializeField]
     [Range(0.0f, 30.0f)]
     [Tooltip("Random Time, in second, between 0 and mBonusNoteSpawnRandomModifier that will be added to mBonusNoteSpawnCooldown.")]
     private float mBonusNoteSpawnRandomModifier = 2;
 
+    [Space(5)]
+
     [Range(0.0f, 30.0f)]
     [Tooltip("Time, in second, for to reach the end of the track. Aka offset.")]
     public float mBonusNoteSpeed = 5;
+
+    [Space(5)]
 
     [SerializeField]
     [Range(0.0f, 30.0f)]
     [Tooltip("Time, in second, when all players need to release their bonus to activate the effect.")]
     private float mBonusReleaseWindow = 0.64f;
 
+    [Space(5)]
+
     [SerializeField]
     [Range(0.0f, 30.0f)]
     [Tooltip("Time, in second, of the bonus effect.")]
     private float mBonusDuration = 10.0f;
 
-    private float mBonusNoteSpawnTimer = 0;
-    private float mRealBonusNoteSpawnCooldown = 0;
+    [HideInInspector]
+    public List<Player> playerList = new List<Player>();
 
-    private float mRealBonusPhaseCooldown = 0;
+    private float   mBonusNoteSpawnTimer = 0;
+    private float   mRealBonusNoteSpawnCooldown = 0;
 
-    private float mBonusPhaseTimer = 0;
-    private bool isInBonusPhase = false;
+    private float   mRealBonusPhaseCooldown = 0;
+
+    private float   mBonusPhaseTimer = 0;
+    private bool    isInBonusPhase = false;
+    
     private List<bool> bonusHelds = new List<bool>();
 
     private StudioEventEmitter mStudioEventEmitter;
@@ -73,8 +99,6 @@ public class RugsManager : MonoBehaviour
     private int bonusHeldCount = 0;     //The number of bonuses held by the players.
 
     private bool BonusReleaseCoroutine = false;
-
-    public List<Player> playerList = new List<Player>();
 
     private void Awake()
     {
@@ -160,8 +184,8 @@ public class RugsManager : MonoBehaviour
 
             //
             UpdateRug(rugs[0], "Guitar");
-            UpdateRug(rugs[1], "Bass");
-            UpdateRug(rugs[2], "Drums");
+            UpdateRug(rugs[1], "Drums");
+            UpdateRug(rugs[2], "Bass");
         }
         else
         {
@@ -171,7 +195,7 @@ public class RugsManager : MonoBehaviour
 
     private void UpdateRug(NoteRug pRug, string pInstrument)
     {
-        if (pRug.GetPlayer() == null)
+        if (pRug.GetPlayer() == null) //No need to update
             return;
 
         Note newNote;
@@ -244,6 +268,7 @@ public class RugsManager : MonoBehaviour
         {
             if (rug.GetPlayer() == null)
             {
+                pPlayer.ResetScore();
                 rug.SetControllingPlayer(pPlayer);
                 playerList.Add(pPlayer);
                 playerCount++;
@@ -322,13 +347,13 @@ public class RugsManager : MonoBehaviour
     internal int GetDrumScore()
     {
         if (playerList.Count < 2) return -1;
-        return playerList[1] != null ? playerList[0].GetPoints() : -1;
+        return playerList[1] != null ? playerList[1].GetPoints() : -1;
     }
 
     internal int GetBassScore()
     {
         if (playerList.Count < 3) return -1;
-        return playerList[2] != null ? playerList[0].GetPoints() : -1;
+        return playerList[2] != null ? playerList[2].GetPoints() : -1;
     }
 
     internal void OnPause()
