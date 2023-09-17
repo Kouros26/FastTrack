@@ -2362,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 1142847221}
     - target: {fileID: 8688097228320053427, guid: 329560a25b989c34096f4ca17116f1f3, type: 3}
       propertyPath: mBonusPhaseCooldown
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4717,6 +4717,7 @@ GameObject:
   - component: {fileID: 2121644287}
   - component: {fileID: 2121644288}
   - component: {fileID: 2121644289}
+  - component: {fileID: 2121644290}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -4850,6 +4851,7 @@ MonoBehaviour:
   lifeDecay: 0.01
   lifeDisplayThreshold: 0.01
   mSEventBadEnd: {fileID: 2121644289}
+  mSEventGoodEnd: {fileID: 2121644290}
   mPointScriptable: {fileID: 11400000, guid: a636c55a488c39d47983e85414236916, type: 2}
 --- !u!95 &2121644288
 Animator:
@@ -4892,6 +4894,37 @@ MonoBehaviour:
       Data3: 2105103534
       Data4: 691094919
     Path: event:/Crowd/End_Bad
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2121644290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121644282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -865951657
+      Data2: 1122526469
+      Data3: 1620444833
+      Data4: 2010439598
+    Path: event:/Crowd/End_Good
   Event: 
   PlayEvent: 0
   StopEvent: 0

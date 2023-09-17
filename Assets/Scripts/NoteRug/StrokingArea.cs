@@ -29,8 +29,6 @@ public class StrokingArea : MonoBehaviour
     public Sprite success;
     public Sprite failure;
 
-    PlayerInput playerinput;
-
     [Header("Inputs")]
     [SerializeField]
     [Tooltip("The name of the action this stroking area is looking for. (see player input actions).")]
